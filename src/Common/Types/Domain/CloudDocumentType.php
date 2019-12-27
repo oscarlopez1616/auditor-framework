@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Domain;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain;
 
-use AuditorFramework\Common\Types\Infrastructure\Exception\NotInAllowedValuesException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\NotInAllowedValuesException;
 
 class CloudDocumentType extends ValueObject
 {

@@ -1,4 +1,4 @@
-AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\User:
+TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\User:
   type: entity
   table: security_and_acl_user
   id:
@@ -7,13 +7,13 @@ AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\User:
 
   embedded:
     userName:
-      class: AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail
+      class: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail
       columnPrefix: user_name_
     userType:
-      class: AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserType
+      class: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserType
       columnPrefix: false
     blockControl:
-      class: AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\BlockControl
+      class: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\BlockControl
       columnPrefix: false
 
   fields:

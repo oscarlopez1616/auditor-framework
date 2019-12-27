@@ -1,4 +1,4 @@
-AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail:
+TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail:
   type: embeddable
 
   fields:

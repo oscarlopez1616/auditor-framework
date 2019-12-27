@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Domain\User;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User;
 
 use DateTime;
-use AuditorFramework\Common\Types\Domain\ValueObject;
-use AuditorFramework\Common\Utils\Assertion\DomainAssertion;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Exception\InvalidBlockControlException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\ValueObject;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Utils\Assertion\DomainAssertion;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Exception\InvalidBlockControlException;
 
 class BlockControl extends ValueObject
 {

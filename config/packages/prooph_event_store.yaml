@@ -2,7 +2,7 @@ services:
   prooph_event_store.pdo_mysql_event_store:
     class: Prooph\EventStore\Pdo\MySqlEventStore
     arguments:
-      - '@AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore\MessageFactory'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore\MessageFactory'
       - '@prooph_event_store.connection.doctrine_pdo_connection'
       - '@prooph_event_store.mysql.single_stream_strategy'
       - 1000
@@ -30,8 +30,8 @@ prooph_event_store:
     auditor_framework_event_store:
       event_store: 'prooph_event_store.pdo_mysql_event_store'
       repositories:
-        AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore\ProophWriteModelRepository:
-          aggregate_type: AuditorFramework\Common\Types\Domain\AggregateRoot
+        TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore\ProophWriteModelRepository:
+          aggregate_type: TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AggregateRoot
           aggregate_translator: 'prooph_event_sourcing.aggregate_translator'
           stream_name: 'auditor_framework_event_stream'
           one_stream_per_aggregate: false
@@ -42,13 +42,13 @@ prooph_event_store:
       projections_table: '_projections'
       projections:
         security_and_acl_user_projection:
-          read_model: 'AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlUserReadModel'
-          projection: 'AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\ReadModel\ProophUserProjection'
+          read_model: 'TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlUserReadModel'
+          projection: 'TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\ReadModel\ProophUserProjection'
     security_and_acl_password_recovery_projection_manager:
       event_store: 'prooph_event_store.pdo_mysql_event_store'
       connection: 'prooph_event_store.connection.doctrine_pdo_connection'
       projections_table: '_projections'
       projections:
         security_and_acl_password_recovery_projection:
-          read_model: 'AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlPasswordRecoveryReadModel'
-          projection: 'AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\ReadModel\ProophPasswordRecoveryProjection'
+          read_model: 'TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlPasswordRecoveryReadModel'
+          projection: 'TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\ReadModel\ProophPasswordRecoveryProjection'

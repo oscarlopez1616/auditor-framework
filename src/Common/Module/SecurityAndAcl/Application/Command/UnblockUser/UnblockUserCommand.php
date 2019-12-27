@@ -1,10 +1,10 @@
 <?php
 
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\UnblockUser;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\UnblockUser;
 
 
-use AuditorFramework\Common\Types\Application\CommandBus\Command;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\CommandBus\Command;
 
 class UnblockUserCommand implements Command
 {

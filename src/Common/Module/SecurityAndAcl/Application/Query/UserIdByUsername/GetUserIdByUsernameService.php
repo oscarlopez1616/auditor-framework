@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername;
 
-use AuditorFramework\Common\Types\Application\ApplicationService;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\User;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserReadModelRepository;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\ApplicationService;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\User;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserReadModelRepository;
 
 class GetUserIdByUsernameService implements ApplicationService
 {

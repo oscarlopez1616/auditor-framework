@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Ui\Http\Client;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Client;
 
 class Oauth2ClientDirector
 {

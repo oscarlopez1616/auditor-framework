@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event;
 
-use AuditorFramework\Common\Types\Domain\Event\Event;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserId;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserId;
 
 class UserPasswordWasChangedEvent extends Event
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Domain\Exception;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception;
 
 class AggregateRootAlreadyRegisteredInEntityException extends DomainException
 {

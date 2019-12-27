@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword;
 
-use AuditorFramework\Common\Types\Application\QueryBus\Query;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\QueryBus\Query;
 
 class GetPasswordRecoveryQuery implements Query
 {

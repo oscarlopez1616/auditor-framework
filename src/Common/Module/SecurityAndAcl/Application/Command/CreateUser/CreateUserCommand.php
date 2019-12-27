@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\CreateUser;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\CreateUser;
 
-use AuditorFramework\Common\Types\Application\CommandBus\Command;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\CommandBus\Command;
 
 class CreateUserCommand implements Command
 {

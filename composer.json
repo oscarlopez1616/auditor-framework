@@ -65,7 +65,7 @@
     },
     "autoload": {
         "psr-4": {
-            "AuditorFramework\\": "src",
+            "TheCodeFighters\\Bundle\\AuditorFramework\\": "src",
             "App\\": "App"
         }
     },

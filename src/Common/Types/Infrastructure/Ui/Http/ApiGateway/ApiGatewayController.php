@@ -1,24 +1,24 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Ui\Http\ApiGateway;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\ApiGateway;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\RequestOptions;
 use JMS\Serializer\Serializer;
-use AuditorFramework\Common\Types\Application\CommandBus;
-use AuditorFramework\Common\Types\Application\QueryBus;
-use AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayBadRequestException;
-use AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayInfrastructureException;
-use AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayRequestConflictException;
-use AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayResourceNotFoundException;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Client\Oauth2ClientBuilder;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Client\Oauth2ClientDirector;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Controller\Controller;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\IdentifiableDtoResourceToRestResourceDataTransformer;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\NonIdentifiableDtoResourceToRestResourceDataTransformer;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\CommandBus;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\QueryBus;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayBadRequestException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayInfrastructureException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayRequestConflictException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayResourceNotFoundException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Client\Oauth2ClientBuilder;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Client\Oauth2ClientDirector;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Controller\Controller;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\IdentifiableDtoResourceToRestResourceDataTransformer;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\NonIdentifiableDtoResourceToRestResourceDataTransformer;
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;

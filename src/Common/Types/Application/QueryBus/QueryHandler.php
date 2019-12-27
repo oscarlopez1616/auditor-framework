@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Application\QueryBus;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\QueryBus;
 
 use React\Promise\Deferred;
 

@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\AddRoleToUser;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\AddRoleToUser;
 
-use AuditorFramework\Common\Types\Application\CommandBus\Command;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\CommandBus\Command;
 
 class AddRoleToUserCommand implements Command
 {

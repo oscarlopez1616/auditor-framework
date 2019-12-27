@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\ReadModel;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\ReadModel;
 
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\RoleWasAddedToUserEvent;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserPasswordWasChangedEvent;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserWasBlockedEvent;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserWasCreatedEvent;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserWasUnblockedEvent;
-use AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlUserReadModel;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\RoleWasAddedToUserEvent;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserPasswordWasChangedEvent;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserWasBlockedEvent;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserWasCreatedEvent;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserWasUnblockedEvent;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlUserReadModel;
 use Prooph\Bundle\EventStore\Projection\ReadModelProjection;
 use Prooph\EventStore\Projection\ReadModelProjector;
 

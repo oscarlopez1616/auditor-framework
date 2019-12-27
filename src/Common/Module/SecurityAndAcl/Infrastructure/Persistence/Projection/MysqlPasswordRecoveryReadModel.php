@@ -1,10 +1,10 @@
 <?php
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DBALException;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\ReadModel\PasswordRecoveryReadModel;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\ReadModel\PasswordRecoveryReadModel;
 use Prooph\EventStore\Projection\AbstractReadModel;
 
 class MysqlPasswordRecoveryReadModel extends AbstractReadModel implements PasswordRecoveryReadModel

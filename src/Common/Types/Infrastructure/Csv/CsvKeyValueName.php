@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Csv;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Csv;
 
-use AuditorFramework\Common\Types\Domain\Uuid;
-use AuditorFramework\Common\Types\Domain\ValueObject;
-use AuditorFramework\Common\Types\Infrastructure\Exception\InvalidFileNameException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Uuid;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\ValueObject;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\InvalidFileNameException;
 
 abstract class CsvKeyValueName extends ValueObject
 {

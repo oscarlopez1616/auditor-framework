@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine;
 
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
-use AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Oauth\Exception\OauthClientAlreadyExistException;
-use AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\TrikoderOauth2\OauthClientRepository;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Oauth\Exception\OauthClientAlreadyExistException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\TrikoderOauth2\OauthClientRepository;
 use Trikoder\Bundle\OAuth2Bundle\Manager\ClientManagerInterface;
 use Trikoder\Bundle\OAuth2Bundle\Model\Client;
 

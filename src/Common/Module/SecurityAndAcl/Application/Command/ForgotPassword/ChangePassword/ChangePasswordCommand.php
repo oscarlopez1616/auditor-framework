@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\ChangePassword;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\ChangePassword;
 
-use AuditorFramework\Common\Types\Application\CommandBus\Command;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\CommandBus\Command;
 
 class ChangePasswordCommand implements Command
 {

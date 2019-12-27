@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Exception;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception;
 
 class RxPhpInfrastructureException extends InfrastructureException
 {

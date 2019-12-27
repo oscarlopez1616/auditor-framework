@@ -6,5 +6,5 @@ jms_serializer:
         auto_detection: false
         directories:
             RestResource:
-                namespace_prefix: "AuditorFramework\\Common\\Types\\Infrastructure\\Ui\\Http\\Rest\\Resource"
+                namespace_prefix: "TheCodeFighters\\Bundle\\AuditorFramework\\Common\\Types\\Infrastructure\\Ui\\Http\\Rest\\Resource"
                 path: '%kernel.project_dir%/src/Common/Types/Infrastructure/Ui/Http/Rest/ResourceRender/JmsSerializer/Annotation'

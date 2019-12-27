@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery;
 
 use DateInterval;
 use DateTime;
-use AuditorFramework\Common\Types\Domain\AggregateRoot;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\Event\PasswordRecoveryWasCreatedEvent;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\Event\PasswordRecoveryWasUsedEvent;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserId;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AggregateRoot;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\Event\PasswordRecoveryWasCreatedEvent;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\Event\PasswordRecoveryWasUsedEvent;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserId;
 
 class PasswordRecovery extends AggregateRoot
 {

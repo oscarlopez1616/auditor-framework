@@ -7,7 +7,7 @@ services:
     app.event_store.default:
         class: Prooph\EventStore\Pdo\MySqlEventStore
         arguments:
-            - '@AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore\MessageFactory'
+            - '@TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore\MessageFactory'
             - '@app.event_store.pdo_connection.mysql'
             - '@app.event_store.mysql.persistence_strategy'
 

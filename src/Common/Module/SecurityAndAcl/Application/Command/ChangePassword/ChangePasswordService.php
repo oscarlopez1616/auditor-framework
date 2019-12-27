@@ -1,18 +1,18 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword;
 
 use Doctrine\DBAL\ConnectionException;
 use Doctrine\ORM\EntityManager;
-use AuditorFramework\Common\Types\Application\Exception\TransactionalApplicationException;
-use AuditorFramework\Common\Types\Application\TransactionAwareApplicationService;
-use AuditorFramework\Common\Types\Domain\Exception\DomainException;
-use AuditorFramework\Common\Types\Domain\WriteModelRepository;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\PasswordRecoveryReadModelRepository;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Exception\InvalidOldPasswordException;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserReadModelRepository;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\Exception\TransactionalApplicationException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\TransactionAwareApplicationService;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\DomainException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\WriteModelRepository;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\PasswordRecoveryReadModelRepository;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Exception\InvalidOldPasswordException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserReadModelRepository;
 use Throwable;
 
 class ChangePasswordService extends TransactionAwareApplicationService

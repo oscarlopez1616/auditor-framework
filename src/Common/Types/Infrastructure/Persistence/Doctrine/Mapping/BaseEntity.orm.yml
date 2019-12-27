@@ -1,4 +1,4 @@
-AuditorFramework\Common\Types\Domain\BaseEntity:
+TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\BaseEntity:
   type: mappedSuperclass
   fields:
     createdAt:

@@ -1,12 +1,12 @@
 <?php
 
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\UnblockUser;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\UnblockUser;
 
 use Doctrine\DBAL\ConnectionException;
-use AuditorFramework\Common\Types\Application\CommandBus\Command;
-use AuditorFramework\Common\Types\Application\CommandBus\CommandHandler;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserId;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\CommandBus\Command;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\CommandBus\CommandHandler;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserId;
 use Throwable;
 
 class UnblockUserHandler implements CommandHandler

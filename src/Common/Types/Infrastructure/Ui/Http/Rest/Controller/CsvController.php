@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Controller;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Controller;
 
 use Exception;
 use JMS\Serializer\Serializer;
-use AuditorFramework\Common\Types\Application\CommandBus;
-use AuditorFramework\Common\Types\Application\QueryBus;
-use AuditorFramework\Common\Types\Application\UploadCsvKeyValue\UploadCsvKeyValueCommand;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\IdentifiableDtoResourceToRestResourceDataTransformer;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\NonIdentifiableDtoResourceToRestResourceDataTransformer;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\CommandRestResource;
-use AuditorFramework\Common\Utils\Assertion\InfrastructureAssertion;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CsvControllerVoter;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\CommandBus;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\QueryBus;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\UploadCsvKeyValue\UploadCsvKeyValueCommand;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\IdentifiableDtoResourceToRestResourceDataTransformer;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\NonIdentifiableDtoResourceToRestResourceDataTransformer;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\CommandRestResource;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Utils\Assertion\InfrastructureAssertion;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CsvControllerVoter;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery;
 
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\Exception\PasswordRecoveryAlreadyExistException;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserId;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\Exception\PasswordRecoveryAlreadyExistException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserId;
 
 interface PasswordRecoveryReadModelRepository
 {

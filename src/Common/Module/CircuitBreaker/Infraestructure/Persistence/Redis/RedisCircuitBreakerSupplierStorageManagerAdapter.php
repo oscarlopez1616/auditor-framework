@@ -1,12 +1,12 @@
 <?php
 
 
-namespace AuditorFramework\Common\Module\CircuitBreaker\Infraestructure\Persistence\Redis;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\CircuitBreaker\Infraestructure\Persistence\Redis;
 
 
-use AuditorFramework\Common\Module\CircuitBreaker\Domain\CircuitBreakerSupplier;
-use AuditorFramework\Common\Module\CircuitBreaker\Domain\CircuitBreakerSupplierId;
-use AuditorFramework\Common\Module\CircuitBreaker\Domain\CircuitBreakerSupplierStorageManagerAdapter;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\CircuitBreaker\Domain\CircuitBreakerSupplier;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\CircuitBreaker\Domain\CircuitBreakerSupplierId;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\CircuitBreaker\Domain\CircuitBreakerSupplierStorageManagerAdapter;
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
 

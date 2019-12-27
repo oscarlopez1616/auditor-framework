@@ -1,16 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\FileSystem;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\FileSystem;
 
 use DateTime;
 use League\Flysystem\FileExistsException;
 use League\Flysystem\FileNotFoundException;
 use League\Flysystem\FilesystemInterface;
-use AuditorFramework\Common\Types\Domain\CloudDocument;
-use AuditorFramework\Common\Types\Domain\CloudDocumentManagerAdapter;
-use AuditorFramework\Common\Types\Domain\Exception\FileExistDomainException;
-use AuditorFramework\Common\Types\Domain\Exception\FileNotFoundDomainException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\CloudDocument;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\CloudDocumentManagerAdapter;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\FileExistDomainException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\FileNotFoundDomainException;
 
 
 class TheLeagueCloudDocumentManager extends CloudDocumentManagerAdapter

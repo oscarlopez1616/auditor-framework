@@ -35,11 +35,11 @@ doctrine:
           charset: utf8mb4
           collate: utf8mb4_unicode_ci
     types:
-      Uuid: AuditorFramework\Common\Types\Infrastructure\Persistence\Doctrine\Type\DoctrineUuid
-      id: AuditorFramework\Common\Types\Infrastructure\Persistence\Doctrine\Type\DoctrineId
-      UserId: AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\Type\DoctrineUserId
-      Roles: AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\Type\DoctrineRoles
-      PasswordRecoveryId: AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\Type\DoctrinePasswordRecoveryId
+      Uuid: TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\Doctrine\Type\DoctrineUuid
+      id: TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\Doctrine\Type\DoctrineId
+      UserId: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\Type\DoctrineUserId
+      Roles: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\Type\DoctrineRoles
+      PasswordRecoveryId: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\Type\DoctrinePasswordRecoveryId
 
   orm:
     auto_generate_proxy_classes: '%kernel.debug%'
@@ -53,10 +53,10 @@ doctrine:
       Common:
         type: yml
         dir: '%kernel.project_dir%/src/Common/Types/Infrastructure/Persistence/Doctrine/Mapping'
-        prefix: AuditorFramework\Common\Types\Domain
+        prefix: TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain
         is_bundle: false
       Common_Module_SecurityAndAcl:
         type: yml
         dir: '%kernel.project_dir%/src/Common/Module/SecurityAndAcl/Infrastructure/Persistence/Doctrine/Mapping'
-        prefix: AuditorFramework\Common\Module\SecurityAndAcl\Domain
+        prefix: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain
         is_bundle: false

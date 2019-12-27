@@ -1,4 +1,4 @@
-AuditorFramework\Common\Types\Domain\IdentifiableValueObject:
+TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\IdentifiableValueObject:
   type: mappedSuperclass
 
   id:

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Persistence\Projection;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\Projection;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DBALException;

@@ -7,34 +7,34 @@ services:
     autoconfigure: true
     public: false
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Security\UserProvider:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Security\UserProvider:
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Security\CustomFirewallRequestMatcher:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Security\CustomFirewallRequestMatcher:
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\TrikoderOauth2\EventListener\UserResolveListener:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\TrikoderOauth2\EventListener\UserResolveListener:
     arguments:
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Security\UserProvider'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Security\UserProvider'
       - '@security.password_encoder'
     tags:
       - { name: kernel.event_listener, event: trikoder.oauth2.user_resolve, method: onUserResolve }
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\TrikoderOauth2\OauthClientService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\TrikoderOauth2\OauthClientService:
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\TrikoderOauth2\OauthClientRepository: '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineOauthClientRepository'
-  AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineOauthClientRepository:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\TrikoderOauth2\OauthClientRepository: '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineOauthClientRepository'
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineOauthClientRepository:
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\PasswordRecoveryReadModelRepository: '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrinePasswordRecoveryReadModelRepository'
-  AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrinePasswordRecoveryReadModelRepository:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\PasswordRecoveryReadModelRepository: '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrinePasswordRecoveryReadModelRepository'
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrinePasswordRecoveryReadModelRepository:
     arguments:
       - '@doctrine.orm.entity_manager'
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserReadModelRepository: '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
-  AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserReadModelRepository: '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
 
   #Cli controllers
-  AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Ui\Cli\CreateInitialUsersIfNotExistsController:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Ui\Cli\CreateInitialUsersIfNotExistsController:
     arguments:
       $userPasswordsByUserName:
         '%env(SECURITY_AND_ACL_USER_SUPER_ADMIN_USER_NAME)%': '%env(SECURITY_AND_ACL_USER_SUPER_ADMIN_PASSWORD)%'
@@ -44,26 +44,26 @@ services:
       $initialSecurityAndAclUsersDataPath: '%kernel.project_dir%/src/Common/Module/SecurityAndAcl/Infrastructure/Ui/Cli/initial_users.yaml'
     tags: ['console.command']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\ReadModel\ProophUserProjection:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\ReadModel\ProophUserProjection:
     tags:
     - {
         name: prooph_event_store.projection,
         projection_name: security_and_acl_user_projection_manager,
         projection_manager: security_and_acl_user_projection_manager,
-        read_model: 'AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlUserReadModel'
+        read_model: 'TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlUserReadModel'
       }
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlUserReadModel:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlUserReadModel:
     arguments: [ '@doctrine.dbal.default_connection' ]
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\ReadModel\ProophPasswordRecoveryProjection:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\ReadModel\ProophPasswordRecoveryProjection:
     tags:
     - {
         name: prooph_event_store.projection,
         projection_name: security_and_acl_password_recovery_projection_manager,
         projection_manager: security_and_acl_password_recovery_projection_manager,
-        read_model: 'AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlPasswordRecoveryReadModel'
+        read_model: 'TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlPasswordRecoveryReadModel'
       }
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlPasswordRecoveryReadModel:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection\MysqlPasswordRecoveryReadModel:
     arguments: [ '@doctrine.dbal.default_connection' ]

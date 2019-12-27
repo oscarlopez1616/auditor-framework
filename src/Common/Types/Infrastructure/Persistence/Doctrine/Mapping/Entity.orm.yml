@@ -1,3 +1,3 @@
-AuditorFramework\Common\Types\Domain\Entity:
+TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Entity:
   type: mappedSuperclass
   fields:

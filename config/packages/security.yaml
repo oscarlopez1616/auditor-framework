@@ -5,7 +5,7 @@ security:
     allow_if_all_abstain: false
   providers:
     user_provider:
-      id: AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Security\UserProvider
+      id: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Security\UserProvider
 
   firewalls:
     dev:
@@ -21,7 +21,7 @@ security:
       security: false
 
     user_process_patch_forgot_password_change_password:
-      request_matcher: AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Security\CustomFirewallRequestMatcher
+      request_matcher: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Security\CustomFirewallRequestMatcher
       security: false
 
     user_by_email:
@@ -57,7 +57,7 @@ security:
       oauth2: true
 
   encoders:
-    AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\User:
+    TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\User:
       algorithm: 'argon2i'
       memory_cost: 1024
       time_cost: 2

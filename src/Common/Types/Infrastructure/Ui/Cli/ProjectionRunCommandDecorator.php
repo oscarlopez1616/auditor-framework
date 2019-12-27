@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Ui\Cli;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Cli;
 
 use DateTime;
 use Exception;
-use AuditorFramework\Common\Utils\Assertion\InfrastructureAssertion;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Utils\Assertion\InfrastructureAssertion;
 use Prooph\Bundle\EventStore\Command\AbstractProjectionCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

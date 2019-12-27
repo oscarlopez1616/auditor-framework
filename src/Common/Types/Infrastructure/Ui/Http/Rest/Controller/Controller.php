@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Controller;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Controller;
 
 use JMS\Serializer\Context;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\Serializer;
-use AuditorFramework\Common\Types\Application\CommandBus;
-use AuditorFramework\Common\Types\Application\QueryBus;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\IdentifiableDtoResourceToRestResourceDataTransformer;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\NonIdentifiableDtoResourceToRestResourceDataTransformer;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\CommandRestResource;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\RestResource;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\RestResourceCollection;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\CommandBus;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\QueryBus;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\IdentifiableDtoResourceToRestResourceDataTransformer;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\NonIdentifiableDtoResourceToRestResourceDataTransformer;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\CommandRestResource;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\RestResource;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\RestResourceCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 

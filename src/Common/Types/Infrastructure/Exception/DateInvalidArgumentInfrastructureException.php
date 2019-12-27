@@ -1,6 +1,6 @@
 <?php
 
-namespace AuditorFramework\Common\Types\Infrastructure\Exception;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception;
 
 class DateInvalidArgumentInfrastructureException extends InvalidArgumentInfrastructureException
 {

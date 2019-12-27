@@ -1,4 +1,4 @@
-AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\BlockControl:
+TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\BlockControl:
   type: embeddable
 
   fields:

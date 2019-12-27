@@ -1,6 +1,6 @@
 <?php
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Security;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Security;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestMatcherInterface;

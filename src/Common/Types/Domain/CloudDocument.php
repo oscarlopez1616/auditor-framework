@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Domain;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain;
 
-use AuditorFramework\Common\Types\Domain\Uuid;
-use AuditorFramework\Common\Types\Domain\ValueObject;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Uuid;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\ValueObject;
 
 class CloudDocument extends ValueObject
 {

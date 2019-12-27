@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Mapper;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Mapper;
 
 use Money\Currencies\ISOCurrencies;
 use Money\Currency;
-use AuditorFramework\Common\Types\Infrastructure\Exception\CurrencyISO4217InvalidArgumentInfrastructureException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\CurrencyISO4217InvalidArgumentInfrastructureException;
 
 class CurrencyMapper
 {

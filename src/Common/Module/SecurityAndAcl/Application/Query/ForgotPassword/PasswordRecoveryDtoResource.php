@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword;
 
-use AuditorFramework\Common\Types\Application\IdentifiableDtoResource;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\IdentifiableDtoResource;
 
 class PasswordRecoveryDtoResource extends IdentifiableDtoResource
 {

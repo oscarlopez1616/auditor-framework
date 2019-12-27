@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Domain;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain;
 
-use AuditorFramework\Common\Types\Domain\Exception\AggregateRootAlreadyRegisteredInEntityException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\AggregateRootAlreadyRegisteredInEntityException;
 use Prooph\EventSourcing\AggregateChanged;
 use function Lambdish\Phunctional\map;
 

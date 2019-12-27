@@ -1,4 +1,4 @@
-AuditorFramework\Common\Types\Domain\AggregateRoot:
+TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AggregateRoot:
   type: mappedSuperclass
   fields:
     playHead:

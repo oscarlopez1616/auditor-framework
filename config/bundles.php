@@ -18,6 +18,6 @@ return [
     OldSound\RabbitMqBundle\OldSoundRabbitMqBundle::class => ['all' => true],
     Trikoder\Bundle\OAuth2Bundle\TrikoderOAuth2Bundle::class => ['all' => true],
     Symfony\Bundle\MonologBundle\MonologBundle::class => ['all' => true],
-    AuditorFramework\Common\Types\Infrastructure\Symfony\Bundle\CommonBundle::class => ['all' => true],
-    AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Bundle\SecurityAndAclBundle::class => ['all' => true]
+    TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Symfony\Bundle\CommonBundle::class => ['all' => true],
+    TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\Bundle\SecurityAndAclBundle::class => ['all' => true]
 ];

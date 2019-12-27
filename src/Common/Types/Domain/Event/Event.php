@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Domain\Event;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event;
 
 use DateTime;
 use Exception;
-use AuditorFramework\Common\Types\Domain\Id;
-use AuditorFramework\Common\Types\Infrastructure\Exception\DateInvalidArgumentInfrastructureException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Id;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\DateInvalidArgumentInfrastructureException;
 use Prooph\EventSourcing\AggregateChanged;
 
 abstract class Event extends AggregateChanged

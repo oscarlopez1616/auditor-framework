@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Persistence\Doctrine\Type;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\Doctrine\Type;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\GuidType;
-use AuditorFramework\Common\Types\Domain\Id;
-use AuditorFramework\Common\Types\Domain\Uuid;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Id;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Uuid;
 
 abstract class DoctrineInfrastructureId extends GuidType
 {

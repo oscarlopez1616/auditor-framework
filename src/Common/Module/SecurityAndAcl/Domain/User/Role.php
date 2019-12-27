@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Domain\User;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User;
 
-use AuditorFramework\Common\Types\Domain\ValueObject;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Exception\InvalidRoleException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\ValueObject;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Exception\InvalidRoleException;
 
 class Role extends ValueObject
 {

@@ -5,210 +5,210 @@ services:
     public: false
 
   #Voters
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\ApiGatewayBorrowerBankReaderControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\ApiGatewayBorrowerBankReaderControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\ApiGatewayBorrowerControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\ApiGatewayBorrowerControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\ApiGatewayCashOutMethodControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\ApiGatewayCashOutMethodControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\BorrowerBankReaderControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\BorrowerBankReaderControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\BorrowerControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\BorrowerControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CashInCashOutMethodControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CashInCashOutMethodControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CashOutMethodControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CashOutMethodControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\LoanControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\LoanControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantAttributionControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantAttributionControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\OriginationRiskValuesControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\OriginationRiskValuesControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\UserControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\UserControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\LenderControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\LenderControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CsvControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CsvControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\LoanApplicationControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\LoanApplicationControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantDataControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantDataControllerVoter:
     tags: [name: 'security.voter']
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantIdInLenderContextControllerVoter:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantIdInLenderContextControllerVoter:
     tags: [name: 'security.voter']
 
   #GetUserProfile
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameHandler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameHandler:
     arguments:
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameService'
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameAssembler'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameService'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameAssembler'
     tags:
     - {
         name: 'prooph_service_bus.auditor_framework_query_bus.route_target',
-        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameQuery
+        message: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameQuery
       }
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameService:
     arguments:
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameAssembler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameAssembler:
 
   #GetUserIdProfile
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameHandler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameHandler:
     arguments:
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameService'
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameAssembler'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameService'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameAssembler'
     tags:
     - {
         name: 'prooph_service_bus.auditor_framework_query_bus.route_target',
-        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameQuery
+        message: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameQuery
       }
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameService:
     arguments:
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameAssembler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameAssembler:
 
   #GetUserByUserId
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdHandler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdHandler:
     arguments:
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdService'
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdAssembler'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdService'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdAssembler'
     tags:
       - {
           name: 'prooph_service_bus.auditor_framework_query_bus.route_target',
-          message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdQuery
+          message: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdQuery
         }
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdService:
     arguments:
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdAssembler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdAssembler:
 
   #ForgotPasswordQueryHandler
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\GetPasswordRecoveryHandler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\GetPasswordRecoveryHandler:
     arguments:
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\GetPasswordRecoveryService'
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\PasswordRecoveryAssembler'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\GetPasswordRecoveryService'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\PasswordRecoveryAssembler'
     tags:
     - {
         name: 'prooph_service_bus.auditor_framework_query_bus.route_target',
-        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\GetPasswordRecoveryQuery
+        message: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\GetPasswordRecoveryQuery
       }
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\GetPasswordRecoveryService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\GetPasswordRecoveryService:
     arguments:
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrinePasswordRecoveryReadModelRepository'
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrinePasswordRecoveryReadModelRepository'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\PasswordRecoveryAssembler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\PasswordRecoveryAssembler:
 
   #AddRoleToUser
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\AddRoleToUser\AddRoleToUserService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\AddRoleToUser\AddRoleToUserService:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\AddRoleToUser\AddRoleToUserHandler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\AddRoleToUser\AddRoleToUserHandler:
     tags:
     - {
         name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
-        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\AddRoleToUser\AddRoleToUserCommand
+        message: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\AddRoleToUser\AddRoleToUserCommand
       }
 
   #CreateUser
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\CreateUser\CreateUserService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\CreateUser\CreateUserService:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\CreateUser\CreateUserHandler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\CreateUser\CreateUserHandler:
     tags:
     - {
         name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
-        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\CreateUser\CreateUserCommand
+        message: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\CreateUser\CreateUserCommand
       }
 
   #ChangePassword
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword\ChangePasswordService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword\ChangePasswordService:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword\ChangePasswordHandler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword\ChangePasswordHandler:
     arguments:
-      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword\ChangePasswordService'
+      - '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword\ChangePasswordService'
     tags:
     - {
         name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
-        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword\ChangePasswordCommand
+        message: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword\ChangePasswordCommand
       }
 
   #ForgotPassword
 
   ##ChangePassword
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\ChangePassword\ChangePasswordService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\ChangePassword\ChangePasswordService:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\ChangePassword\ChangePasswordHandler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\ChangePassword\ChangePasswordHandler:
     tags:
       - {
           name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
-          message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\ChangePassword\ChangePasswordCommand
+          message: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\ChangePassword\ChangePasswordCommand
         }
 
   ##CreateAndSendPasswordRecovery
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\CreateAndSendPasswordRecovery\CreateAndSendPasswordRecoveryService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\CreateAndSendPasswordRecovery\CreateAndSendPasswordRecoveryService:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\CreateAndSendPasswordRecovery\CreateAndSendPasswordRecoveryHandler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\CreateAndSendPasswordRecovery\CreateAndSendPasswordRecoveryHandler:
     tags:
     - {
         name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
-        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\CreateAndSendPasswordRecovery\CreateAndSendPasswordRecoveryCommand
+        message: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\CreateAndSendPasswordRecovery\CreateAndSendPasswordRecoveryCommand
       }
 
   ##BlockUser
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\BlockUser\BlockUserService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\BlockUser\BlockUserService:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\BlockUser\BlockUserHandler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\BlockUser\BlockUserHandler:
     tags:
     - {
         name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
-        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\BlockUser\BlockUserCommand
+        message: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\BlockUser\BlockUserCommand
       }
 
   ##UnblockUser
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\UnblockUser\UnblockUserService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\UnblockUser\UnblockUserService:
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\UnblockUser\UnblockUserHandler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\UnblockUser\UnblockUserHandler:
     tags:
     - {
         name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
-        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\UnblockUser\UnblockUserCommand
+        message: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\UnblockUser\UnblockUserCommand
       }

@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Domain\Exception;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception;
 
-use AuditorFramework\Common\Types\Infrastructure\Exception\InfrastructureException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\InfrastructureException;
 
 class FileNotFoundDomainException extends InfrastructureException
 {

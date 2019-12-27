@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Utils\Assertion;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Utils\Assertion;
 
 use Assert\Assertion as BeberleiAssertion;
 use Assert\AssertionFailedException;
-use AuditorFramework\Common\Types\Domain\Exception\InvalidEmailException;
-use AuditorFramework\Common\Types\Domain\Exception\InvalidUuidException;
-use AuditorFramework\Common\Types\Infrastructure\Exception\InvalidDateException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\InvalidEmailException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\InvalidUuidException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\InvalidDateException;
 
 class DomainAssertion extends Assertion
 {

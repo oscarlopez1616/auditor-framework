@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer;
 
-use AuditorFramework\Common\Types\Application\NonIdentifiableDtoResource;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\NonIdentifiableRestResource;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\NonIdentifiableRestResourceCollection;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\NonIdentifiableDtoResource;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\NonIdentifiableRestResource;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\NonIdentifiableRestResourceCollection;
 
 class NonIdentifiableDtoResourceToRestResourceDataTransformer
 {

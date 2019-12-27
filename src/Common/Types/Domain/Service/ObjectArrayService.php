@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Domain\Service;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Service;
 
-use AuditorFramework\Common\Types\Domain\ValueObject;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\ValueObject;
 
 class ObjectArrayService
 {

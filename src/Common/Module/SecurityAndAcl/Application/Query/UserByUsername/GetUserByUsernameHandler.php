@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername;
 
 use Exception;
-use AuditorFramework\Common\Types\Application\QueryBus\Query;
-use AuditorFramework\Common\Types\Application\QueryBus\QueryHandler;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\QueryBus\Query;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\QueryBus\QueryHandler;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail;
 use React\Promise\Deferred;
 
 class GetUserByUsernameHandler implements QueryHandler

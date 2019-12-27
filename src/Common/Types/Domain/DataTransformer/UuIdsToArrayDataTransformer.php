@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Domain\DataTransformer;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\DataTransformer;
 
-use AuditorFramework\Common\Types\Domain\Exception\InvalidUuidClassException;
-use AuditorFramework\Common\Types\Domain\Uuid;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\InvalidUuidClassException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Uuid;
 
 class UuIdsToArrayDataTransformer
 {

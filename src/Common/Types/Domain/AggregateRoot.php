@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Domain;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain;
 
 use DateTime;
 use DateTimeImmutable;
-use AuditorFramework\Common\Types\Domain\Event\Event;
-use AuditorFramework\Common\Types\Domain\Exception\EventNotFoundInTheAggregateRootUnPersistedRecordedEventsException;
-use AuditorFramework\Common\Utils\FixNullableValueObjectsService;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\EventNotFoundInTheAggregateRootUnPersistedRecordedEventsException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Utils\FixNullableValueObjectsService;
 use Prooph\EventSourcing\AggregateChanged;
 use Prooph\EventSourcing\AggregateRoot as ProophAggregateRoot;
 use ReflectionException;

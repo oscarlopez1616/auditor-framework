@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Persistence\Doctrine\Type;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\Doctrine\Type;
 
-use AuditorFramework\Common\Types\Domain\Uuid;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Uuid;
 
 class DoctrineId extends DoctrineInfrastructureId
 {

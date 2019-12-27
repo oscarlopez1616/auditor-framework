@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Ui\Cli;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Ui\Cli;
 
 use Exception;
-use AuditorFramework\Common\Types\Application\CommandBus;
-use AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\CreateUser\CreateUserCommand;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Exception\UserAlreadyExistException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\CommandBus;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\CreateUser\CreateUserCommand;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Exception\UserAlreadyExistException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

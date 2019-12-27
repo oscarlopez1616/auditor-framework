@@ -1,13 +1,13 @@
 <?php
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event;
 
 use Exception;
-use AuditorFramework\Common\Types\Domain\Event\Event;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Role;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserId;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserType;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Role;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserId;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserType;
 
 class UserWasCreatedEvent extends Event
 {

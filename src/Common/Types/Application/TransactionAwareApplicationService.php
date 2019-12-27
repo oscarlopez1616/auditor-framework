@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Application;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application;
 
 use Doctrine\DBAL\ConnectionException;
 use Doctrine\ORM\EntityManagerInterface;
-use AuditorFramework\Common\Types\Domain\WriteModelRepository;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\WriteModelRepository;
 
 abstract class TransactionAwareApplicationService implements ApplicationService
 {

@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Domain;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain;
 
-use AuditorFramework\Common\Types\Domain\AggregateRoot;
-use AuditorFramework\Common\Types\Domain\Event\Event;
-use AuditorFramework\Common\Types\Domain\Uuid;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AggregateRoot;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Uuid;
 
 interface WriteModelRepository
 {

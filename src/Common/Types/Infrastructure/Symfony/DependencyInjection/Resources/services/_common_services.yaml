@@ -5,14 +5,14 @@ services:
     public: false
 
   #UploadCsvKeyValueCommand
-  AuditorFramework\Common\Types\Application\UploadCsvKeyValue\UploadCsvKeyValueHandler:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\UploadCsvKeyValue\UploadCsvKeyValueHandler:
     tags:
       - {
           name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
-          message: AuditorFramework\Common\Types\Application\UploadCsvKeyValue\UploadCsvKeyValueCommand
+          message: TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\UploadCsvKeyValue\UploadCsvKeyValueCommand
        }
 
-  AuditorFramework\Common\Types\Application\UploadCsvKeyValue\UploadCsvKeyValueService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\UploadCsvKeyValue\UploadCsvKeyValueService:
 
-  AuditorFramework\Common\Types\Domain\CloudDocumentManagerAdapter: '@AuditorFramework\Common\Types\Infrastructure\FileSystem\TheLeagueCloudDocumentManager'
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\CloudDocumentManagerAdapter: '@TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\FileSystem\TheLeagueCloudDocumentManager'
 

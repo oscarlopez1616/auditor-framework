@@ -1,4 +1,4 @@
 services:
 
-  AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Ui\Http\Rest\Controller\UserController:
-    parent: AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Controller\Controller
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Ui\Http\Rest\Controller\UserController:
+    parent: TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Controller\Controller

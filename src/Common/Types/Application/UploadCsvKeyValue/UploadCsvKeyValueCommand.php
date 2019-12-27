@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Application\UploadCsvKeyValue;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\UploadCsvKeyValue;
 
-use AuditorFramework\Common\Types\Application\CommandBus\Command;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\CommandBus\Command;
 
 class UploadCsvKeyValueCommand implements Command
 {

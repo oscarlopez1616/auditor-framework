@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Domain;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain;
 
 use Exception;
-use AuditorFramework\Common\Utils\Assertion\DomainAssertion;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Utils\Assertion\DomainAssertion;
 use Ramsey\Uuid\Uuid as RamseyUuid;
 
 class Uuid extends Id

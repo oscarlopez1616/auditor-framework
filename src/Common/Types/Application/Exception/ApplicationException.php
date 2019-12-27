@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Application\Exception;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\Exception;
 
 use DomainException as SPLDomainException;
 

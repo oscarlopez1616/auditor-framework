@@ -1,21 +1,21 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Symfony\EventListener;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Symfony\EventListener;
 
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
-use AuditorFramework\Common\Types\Application\Exception\ApplicationException;
-use AuditorFramework\Common\Types\Domain\Exception\DomainEntityNotFoundException;
-use AuditorFramework\Common\Types\Domain\Exception\DomainException;
-use AuditorFramework\Common\Types\Domain\Exception\InvalidDomainFormatException;
-use AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayBadRequestException;
-use AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayRequestConflictException;
-use AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayResourceNotFoundException;
-use AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayServiceUnavailableInfrastructureException;
-use AuditorFramework\Common\Types\Infrastructure\Exception\InfrastructureException;
-use AuditorFramework\Common\Types\Infrastructure\Exception\InvalidArgumentInfrastructureException;
-use AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\ErrorRestResource;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\Exception\ApplicationException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\DomainEntityNotFoundException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\DomainException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\InvalidDomainFormatException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayBadRequestException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayRequestConflictException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayResourceNotFoundException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\ApiGatewayServiceUnavailableInfrastructureException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\InfrastructureException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\InvalidArgumentInfrastructureException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\ErrorRestResource;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;

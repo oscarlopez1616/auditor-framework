@@ -7,25 +7,25 @@ services:
     autoconfigure: true
     public: false
 
-  AuditorFramework\Common\Types\Infrastructure\Symfony\EventListener\ExceptionListener:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Symfony\EventListener\ExceptionListener:
     tags:
       - { name: kernel.event_listener, event: kernel.exception }
 
-  AuditorFramework\Common\Types\Application\CommandBus:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\CommandBus:
     arguments:
       - '@prooph_service_bus.auditor_framework_command_bus'
 
-  AuditorFramework\Common\Types\Application\QueryBus:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\QueryBus:
     arguments: [ '@prooph_service_bus.auditor_framework_query_bus' ]
 
-  AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\IdentifiableDtoResourceToRestResourceDataTransformer:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\IdentifiableDtoResourceToRestResourceDataTransformer:
 
-  AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\NonIdentifiableDtoResourceToRestResourceDataTransformer:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\NonIdentifiableDtoResourceToRestResourceDataTransformer:
 
 
-  AuditorFramework\Common\Types\Domain\WriteModelRepository: '@AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore\ProophWriteModelRepository'
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\WriteModelRepository: '@TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore\ProophWriteModelRepository'
 
-  AuditorFramework\Common\Types\Infrastructure\Ui\Cli\CreateNemuruEventStreamIfNotExistsController:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Cli\CreateNemuruEventStreamIfNotExistsController:
     arguments:
       - '@prooph_event_store.auditor_framework_event_store'
     tags: ['console.command']
@@ -40,23 +40,23 @@ services:
       - '@prooph_event_store.projections_locator'
       - '@prooph_event_store.projection_read_models_locator'
 
-  AuditorFramework\Common\Types\Infrastructure\Ui\Cli\ProjectionRunCommandDecorator:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Cli\ProjectionRunCommandDecorator:
     public: false
     autowire: true
     autoconfigure: false
     parent: Prooph\Bundle\EventStore\Command\AbstractProjectionCommand
     tags: ['console.command']
 
-  AuditorFramework\Common\Types\Infrastructure\Ui\Http\ApiGateway\Unnax\UnnaxDecoder:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\ApiGateway\Unnax\UnnaxDecoder:
 
-  AuditorFramework\Common\Types\Domain\AmqpCommandPublisherService: '@AuditorFramework\Common\Types\Infrastructure\Amqp\Producer\RabbitDomainEventPublisherService'
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AmqpCommandPublisherService: '@TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Amqp\Producer\RabbitDomainEventPublisherService'
 
-  AuditorFramework\Common\Types\Infrastructure\Amqp\Producer\RabbitDomainEventPublisherService:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Amqp\Producer\RabbitDomainEventPublisherService:
     arguments:
       - '@old_sound_rabbit_mq.event_enqueuer_producer'
 
-  AuditorFramework\Common\Types\Infrastructure\Ui\Http\Client\Oauth2ClientDirector:
-  AuditorFramework\Common\Types\Infrastructure\Ui\Http\Client\Oauth2WithPasswordCredentialsClientBuilder:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Client\Oauth2ClientDirector:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Client\Oauth2WithPasswordCredentialsClientBuilder:
     arguments:
       $baseUrl: '%env(API_BASE_URL)%'
       $reAuthUrl: '%env(API_TOKEN_URL)%'
@@ -66,12 +66,12 @@ services:
         username: '%env(SECURITY_AND_ACL_USER_API_GATEWAY_USER_NAME)%'
         password: '%env(SECURITY_AND_ACL_USER_API_GATEWAY_PASSWORD)%'
 
-  AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore\MessageFactory:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore\MessageFactory:
 
-  AuditorFramework\Common\Types\Infrastructure\Csv\CsvReader:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Csv\CsvReader:
 
-  AuditorFramework\Common\Types\Infrastructure\Csv\DataTransformer\KeyValueFromCsvDataTransformer:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Csv\DataTransformer\KeyValueFromCsvDataTransformer:
 
-  AuditorFramework\Common\Types\Infrastructure\FileSystem\TheLeagueCloudDocumentManager:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\FileSystem\TheLeagueCloudDocumentManager:
     arguments:
       $filesystem: '@default_filesystem'

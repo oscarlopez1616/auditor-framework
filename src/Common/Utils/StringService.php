@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Utils;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Utils;
 
 class StringService
 {

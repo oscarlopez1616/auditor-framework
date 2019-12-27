@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore;
 
 use Exception;
-use AuditorFramework\Common\Types\Domain\AggregateRoot;
-use AuditorFramework\Common\Types\Domain\Event\Event;
-use AuditorFramework\Common\Types\Domain\Uuid;
-use AuditorFramework\Common\Types\Domain\WriteModelRepository;
-use AuditorFramework\Common\Types\Infrastructure\Exception\AggregateRootDuplicateInEventStoreException;
-use AuditorFramework\Common\Types\Infrastructure\Exception\AggregateRootNotFoundInEventStoreException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AggregateRoot;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Uuid;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\WriteModelRepository;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\AggregateRootDuplicateInEventStoreException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\AggregateRootNotFoundInEventStoreException;
 use Prooph\EventSourcing\Aggregate\AggregateRepository;
 use Prooph\EventSourcing\Aggregate\AggregateType;
 use Prooph\EventSourcing\AggregateChanged;

@@ -1,4 +1,4 @@
-AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\RestResource:
+TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\RestResource:
   exclusion_policy: ALL
   properties:
     status:

@@ -1,10 +1,10 @@
 <?php
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Projection;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DBALException;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\ReadModel\UserReadModel;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\ReadModel\UserReadModel;
 use Prooph\EventStore\Projection\AbstractReadModel;
 
 class MysqlUserReadModel extends AbstractReadModel implements UserReadModel

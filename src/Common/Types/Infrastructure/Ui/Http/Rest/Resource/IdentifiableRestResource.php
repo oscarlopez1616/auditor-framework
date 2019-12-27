@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource;
 
-use AuditorFramework\Common\Types\Application\IdentifiableDtoResource;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\IdentifiableDtoResource;
 
 final class IdentifiableRestResource extends RestResource
 {

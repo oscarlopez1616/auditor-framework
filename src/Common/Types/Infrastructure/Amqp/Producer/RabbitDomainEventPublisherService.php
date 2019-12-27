@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Amqp\Producer;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Amqp\Producer;
 
-use AuditorFramework\Common\Types\Domain\AmqpCommandPublisherService;
-use AuditorFramework\Common\Types\Domain\Event\Event;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AmqpCommandPublisherService;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
 use OldSound\RabbitMqBundle\RabbitMq\Producer;
 use PhpAmqpLib\Message\AMQPMessage;
 

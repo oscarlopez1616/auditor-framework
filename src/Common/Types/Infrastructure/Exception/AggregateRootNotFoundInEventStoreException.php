@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Exception;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception;
 
-use AuditorFramework\Common\Types\Domain\Exception\DomainException;
-use AuditorFramework\Common\Types\Domain\Uuid;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\DomainException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Uuid;
 
 class AggregateRootNotFoundInEventStoreException extends DomainException
 {

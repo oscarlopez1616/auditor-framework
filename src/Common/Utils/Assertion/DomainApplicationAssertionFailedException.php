@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Utils\Assertion;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Utils\Assertion;
 
-use AuditorFramework\Common\Types\Domain\Exception\DomainException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\DomainException;
 
 class DomainApplicationAssertionFailedException extends DomainException
 {

@@ -1,19 +1,19 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Module\SecurityAndAcl\Domain\User;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User;
 
 use DateTime;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Entities\Traits\ClientTrait;
 use League\OAuth2\Server\Entities\Traits\EntityTrait;
-use AuditorFramework\Common\Types\Domain\AggregateRoot;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\RoleWasAddedToUserEvent;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserPasswordWasChangedEvent;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserWasBlockedEvent;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserWasCreatedEvent;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserWasUnblockedEvent;
-use AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Exception\RoleAlreadyAddedToUserException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AggregateRoot;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\RoleWasAddedToUserEvent;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserPasswordWasChangedEvent;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserWasBlockedEvent;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserWasCreatedEvent;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event\UserWasUnblockedEvent;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Exception\RoleAlreadyAddedToUserException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use function Lambdish\Phunctional\map;
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Infrastructure\Symfony\Bundle;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Symfony\Bundle;
 
-use AuditorFramework\Common\Types\Infrastructure\Symfony\DependencyInjection\CommonExtension;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Symfony\DependencyInjection\CommonExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class CommonBundle extends Bundle

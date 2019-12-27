@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Utils\Assertion;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Utils\Assertion;
 
 use Assert\Assertion as BeberleiAssertion;
 

@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AuditorFramework\Common\Types\Domain;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain;
 
-use AuditorFramework\Common\Utils\FixNullableValueObjectsService;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Utils\FixNullableValueObjectsService;
 use ReflectionException;
 
 abstract class IdentifiableValueObject extends ValueObject
