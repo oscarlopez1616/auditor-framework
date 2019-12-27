@@ -1,7 +1,9 @@
 {
+    "name": "oscarlopez1616/auditor-framework",
+    "description": "Auditor Framework preAlpha version to get a Production version go to TheCodeFigthers",
     "type": "project",
-    "license": "proprietary",
-    "_comment": "# review this requirement when trikoder will update version to the next relase",
+    "license": "GPL",
+    "_comment": "",
     "require": {
         "php": "^7.3",
         "ext-ctype": "*",
