@@ -1,64 +1,33 @@
 {
-    "name": "oscarlopez1616/auditor-framework",
-    "description": "Auditor Framework preAlpha version to get a Production version go to TheCodeFigthers",
-    "type": "project",
-    "license": "AGPL-3.0-or-later",
-    "_comment": "",
-    "require": {
-        "php": "^7.3",
-        "ext-ctype": "*",
-        "ext-iconv": "*",
-        "ext-json": "*",
-        "ext-openssl": "*",
-        "ext-soap": "*",
-        "ext-sodium": "*",
-        "doctrine/orm": "^2.6",
-        "guzzlehttp/guzzle": "~6.3",
-        "jms/serializer-bundle": "^3.3",
-        "kamermans/guzzle-oauth2-subscriber": "^1.0",
-        "lambdish/phunctional": "^1.0",
-        "league/flysystem-aws-s3-v3": "^1.0",
-        "league/iso3166": "^2.1",
-        "nelmio/cors-bundle": "^1.5",
-        "nyholm/psr7": "^1.1",
-        "oneup/flysystem-bundle": "^3.0",
-        "php-amqplib/rabbitmq-bundle": "^1.14",
-        "prooph/event-sourcing": "^5.6",
-        "prooph/event-store-bus-bridge-symfony-bundle": "dev-master",
-        "prooph/event-store-symfony-bundle": "^0.6.0",
-        "prooph/pdo-event-store": "^1.11",
-        "prooph/service-bus-symfony-bundle": "^0.7.0",
-        "prooph/snapshot-store": "^1.3",
-        "react/event-loop": "^1.1",
-        "react/promise": "^2.7",
-        "reactivex/rxphp": "^2.0",
-        "rx/websocket": "^2.1",
-        "scienta/doctrine-json-functions": "^4.0",
-        "trikoder/oauth2-bundle": "dev-master",
-        "zircote/swagger-php": "^3.0"
-    },
-    "require-dev": {
-        "symfony/dotenv": "^4.3",
-        "symfony/phpunit-bridge": "^4.3",
-        "symfony/test-pack": "^1.0"
-    },
-    "config": {
-        "bin-dir": "bin"
-    },
-    "autoload": {
-        "psr-4": {
-            "TheCodeFighters\\Bundle\\AuditorFramework\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-
-        }
-    },
-    "minimum-stability": "dev",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "master-dev"
-        }
+  "name": "oscarlopez1616/auditor-framework",
+  "description": "Auditor Framework preAlpha version to get a Production version go to TheCodeFigthers",
+  "license": "AGPL-3.0-or-later",
+  "require": {
+    "php": "^7.3",
+    "ext-ctype": "*",
+    "ext-iconv": "*",
+    "ext-json": "*",
+    "ext-openssl": "*",
+    "ext-soap": "*",
+    "ext-sodium": "*"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "TheCodeFighters\\Bundle\\AuditorFramework\\": "src"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+    }
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "master-dev"
+    }
+  }
 }
