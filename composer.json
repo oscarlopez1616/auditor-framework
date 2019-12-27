@@ -2,7 +2,7 @@
     "name": "oscarlopez1616/auditor-framework",
     "description": "Auditor Framework preAlpha version to get a Production version go to TheCodeFigthers",
     "type": "project",
-    "license": "GPL",
+    "license": "AGPL-3.0-or-later",
     "_comment": "",
     "require": {
         "php": "^7.3",
