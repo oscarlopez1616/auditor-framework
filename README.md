@@ -1,4 +1,4 @@
-# To initiliatise this project:
+# To initialize this project:
 
 ```bash
 ./gradlew 
