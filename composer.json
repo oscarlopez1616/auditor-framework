@@ -110,13 +110,14 @@
     "conflict": {
         "symfony/symfony": "*"
     },
+    "minimum-stability": "dev",
     "extra": {
         "symfony": {
             "allow-contrib": true,
             "require": "~4.3"
         },
         "branch-alias": {
-            "dev-master": "master"
+            "dev-master": "master-dev"
         }
     }
 }
