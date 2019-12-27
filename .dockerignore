@@ -1,0 +1,17 @@
+.DS_Store
+.composer
+.vscode
+.dockerignore
+.env
+.git
+.gitignore
+.idea
+.ppm
+docker/
+var/
+vendor/
+public/build/
+Dockerfile
+Makefile
+node_modules
+src/Common/Module/SecurityAndAcl/Infrastructure/TrikoderOauth2/Keys/

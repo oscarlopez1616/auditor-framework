@@ -1,0 +1,9 @@
+/logs
+/.data
+/.idea
+.env
+.gradle
+local.properties
+playbook-setup-environment.retry
+playbook-vault.yml
+playbook-vars.yml

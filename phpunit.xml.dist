@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- https://phpunit.de/manual/current/en/appendixes.configuration.html -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.8/phpunit.xsd"
+         backupGlobals="false"
+         colors="true"
+         bootstrap="vendor/autoload.php"
+>
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <server name="KERNEL_CLASS" value="Kernel" />
+        <server name="HTTP_HOST" value="http://localhost:8000" />
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak"/>
+
+        <!-- ###+ nelmio/cors-bundle ### -->
+        <env name="CORS_ALLOW_ORIGIN" value="^https?://localhost(:[0-9]+)?$"/>
+        <!-- ###- nelmio/cors-bundle ### -->
+
+        <!-- ###+ enqueue/enqueue-bundle ### -->
+        <env name="ENQUEUE_DSN" value="null://"/>
+        <!-- ###- enqueue/enqueue-bundle ### -->
+
+        <!-- ###+ symfony/framework-bundle ### -->
+        <env name="APP_ENV" value="dev"/>
+        <env name="APP_SECRET" value="213211b5db3689baabba0f36271eb4f7"/>
+        <!-- env name="TRUSTED_PROXIES" value="127.0.0.1,127.0.0.2" -->
+        <!-- env name="TRUSTED_HOSTS" value="'^localhost|example\.com$'" -->
+        <!-- ###- symfony/framework-bundle ### -->
+
+        <!-- ###+ doctrine/doctrine-bundle ### -->
+        <!-- Format described at http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html#connecting-using-a-url -->
+        <!-- For an SQLite database, use: "sqlite:///%kernel.project_dir%/var/data.db" -->
+        <!-- Configure your db driver and server_version in config/packages/doctrine.yaml -->
+        <env name="DATABASE_URL" value="mysql://db_user:db_password@127.0.0.1:3306/db_name"/>
+        <!-- ###- doctrine/doctrine-bundle ### -->
+
+        <!-- ###+ enqueue/redis ### -->
+        <env name="ENQUEUE_DSN" value="redis:"/>
+        <!-- ###- enqueue/redis ### -->
+
+        <!-- ###+ prooph/pdo-event-store ### -->
+        <env name="MYSQL_DSN" value="mysql:host=127.0.0.1;dbname=event_streams"/>
+        <env name="MYSQL_USER" value="user"/>
+        <env name="MYSQL_PASSWORD" value="password"/>
+        <!-- ###- prooph/pdo-event-store ### -->
+
+        <!-- ###+ php-amqplib/rabbitmq-bundle ### -->
+        <env name="RABBITMQ_URL" value="amqp://guest:guest@localhost:5672"/>
+        <!-- ###- php-amqplib/rabbitmq-bundle ### -->
+    </php>
+
+    <testsuites>
+        <testsuite name="AuditorFramework Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+        <testsuite name="AuditorFramework Test Suite">
+            <directory>src/Module/Risk/Tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>src/Model</directory>
+        </whitelist>
+    </filter>
+</phpunit>

@@ -1,0 +1,15 @@
+oauth2:
+  resource: '@TrikoderOAuth2Bundle/Resources/config/routes.xml'
+
+user_controller:
+  prefix: /api/security_and_acl/user
+  resource: AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Ui\Http\Rest\Controller\UserController
+
+csv_controller:
+  prefix: /api/common/csv
+  resource: AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Controller\CsvController
+
+#HealthCheckController
+health_check_controller:
+  prefix: /api/healthcheck
+  resource: AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Controller\HealthCheckController

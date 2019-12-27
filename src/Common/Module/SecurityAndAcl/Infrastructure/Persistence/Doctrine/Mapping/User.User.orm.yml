@@ -1,0 +1,28 @@
+AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\User:
+  type: entity
+  table: security_and_acl_user
+  id:
+    id:
+      type: UserId
+
+  embedded:
+    userName:
+      class: AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail
+      columnPrefix: user_name_
+    userType:
+      class: AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserType
+      columnPrefix: false
+    blockControl:
+      class: AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\BlockControl
+      columnPrefix: false
+
+  fields:
+    roles:
+      type: Roles
+      nullable: false
+    password:
+      type: text
+      nullable: false
+    active:
+      type: boolean
+      nullable: false

@@ -1,0 +1,7 @@
+AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\NonIdentifiableRestResource:
+    exclusion_policy: ALL
+    properties:
+      payload:
+          expose: true
+          serialized_name: payload
+          type: AuditorFramework\Common\Types\Application\NonIdentifiableDtoResource

@@ -1,0 +1,13 @@
+prooph_service_bus:
+  command_buses:
+    auditor_framework_command_bus: ~
+  query_buses:
+    auditor_framework_query_bus: ~
+  event_buses:
+    auditor_framework_event_bus: ~
+
+services:
+  Prooph\EventStore\Pdo\DefaultMessageConverter:
+
+
+

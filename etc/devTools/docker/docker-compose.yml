@@ -1,0 +1,67 @@
+version: '3.7'
+
+services:
+
+    php:
+        container_name: container_tech_pump_php
+        image: auditorframework/php:7.3.9-fpm
+        command: bash -c "php-fpm"
+        volumes:
+            - type: bind
+              source: ../../../
+              target: /var/www/symfony
+        ports:
+            - "9901:9901"
+        depends_on:
+            - mysql
+
+    redis:
+        container_name: container_tech_pump_redis
+        image: redis:alpine
+        ports:
+            - "6379:6379"
+
+    nginx:
+        container_name: container_tech_pump_nginx
+        build:
+            context: nginx
+            args:
+                MAX_EXECUTION_TIME: ${MAX_EXECUTION_TIME}
+                SERVER_NAME: ${SERVER_NAME}
+        ports:
+            - "80:80"
+        volumes:
+            - nginx:/var/log/nginx
+        depends_on:
+            - php
+    mysql:
+        container_name: container_tech_pump_mysql
+        image: mysql:5.7
+        command: --explicit_defaults_for_timestamp=1
+        volumes:
+            - mysql:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        ports:
+            - "3306:3306"
+
+#    rabbit:
+#        container_name: container_tech_pump_rabbit
+#        hostname: rabbit
+#        image: rabbitmq:3-management
+#        environment:
+#            RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+#            RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+#        volumes:
+#            - rabbitmq:/var/lib/rabbitmq
+#        ports:
+#            - "5672:5672"
+#            - "15672:15672"
+
+volumes:
+    nginx:
+    mysql:
+#    rabbitmq:

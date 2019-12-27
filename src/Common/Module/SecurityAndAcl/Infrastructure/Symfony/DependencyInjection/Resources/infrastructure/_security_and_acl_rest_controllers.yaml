@@ -1,0 +1,4 @@
+services:
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Ui\Http\Rest\Controller\UserController:
+    parent: AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Controller\Controller

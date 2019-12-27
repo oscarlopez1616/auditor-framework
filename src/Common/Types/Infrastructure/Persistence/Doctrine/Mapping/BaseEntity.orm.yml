@@ -1,0 +1,10 @@
+AuditorFramework\Common\Types\Domain\BaseEntity:
+  type: mappedSuperclass
+  fields:
+    createdAt:
+      type: datetime_immutable
+      column: created_at
+    updatedAt:
+      type: datetime
+      column: updated_at
+      nullable: false

@@ -1,0 +1,7 @@
+AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\RestResource:
+  exclusion_policy: ALL
+  properties:
+    status:
+      type: string
+      expose: true
+      serialized_name: status

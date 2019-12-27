@@ -1,0 +1,214 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  #Voters
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\ApiGatewayBorrowerBankReaderControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\ApiGatewayBorrowerControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\ApiGatewayCashOutMethodControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\BorrowerBankReaderControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\BorrowerControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CashInCashOutMethodControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CashOutMethodControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\LoanControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantAttributionControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\OriginationRiskValuesControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\UserControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\LenderControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CsvControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\LoanApplicationControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantDataControllerVoter:
+    tags: [name: 'security.voter']
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantIdInLenderContextControllerVoter:
+    tags: [name: 'security.voter']
+
+  #GetUserProfile
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameHandler:
+    arguments:
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameService'
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameAssembler'
+    tags:
+    - {
+        name: 'prooph_service_bus.auditor_framework_query_bus.route_target',
+        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameQuery
+      }
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameService:
+    arguments:
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUsername\GetUserByUsernameAssembler:
+
+  #GetUserIdProfile
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameHandler:
+    arguments:
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameService'
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameAssembler'
+    tags:
+    - {
+        name: 'prooph_service_bus.auditor_framework_query_bus.route_target',
+        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameQuery
+      }
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameService:
+    arguments:
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserIdByUsername\GetUserIdByUsernameAssembler:
+
+  #GetUserByUserId
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdHandler:
+    arguments:
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdService'
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdAssembler'
+    tags:
+      - {
+          name: 'prooph_service_bus.auditor_framework_query_bus.route_target',
+          message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdQuery
+        }
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdService:
+    arguments:
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\UserByUserId\GetUserByUserIdAssembler:
+
+  #ForgotPasswordQueryHandler
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\GetPasswordRecoveryHandler:
+    arguments:
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\GetPasswordRecoveryService'
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\PasswordRecoveryAssembler'
+    tags:
+    - {
+        name: 'prooph_service_bus.auditor_framework_query_bus.route_target',
+        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\GetPasswordRecoveryQuery
+      }
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\GetPasswordRecoveryService:
+    arguments:
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrinePasswordRecoveryReadModelRepository'
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\DoctrineUserReadModelRepository'
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Query\ForgotPassword\PasswordRecoveryAssembler:
+
+  #AddRoleToUser
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\AddRoleToUser\AddRoleToUserService:
+    arguments:
+      $entityManager: '@doctrine.orm.entity_manager'
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\AddRoleToUser\AddRoleToUserHandler:
+    tags:
+    - {
+        name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
+        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\AddRoleToUser\AddRoleToUserCommand
+      }
+
+  #CreateUser
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\CreateUser\CreateUserService:
+    arguments:
+      $entityManager: '@doctrine.orm.entity_manager'
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\CreateUser\CreateUserHandler:
+    tags:
+    - {
+        name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
+        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\CreateUser\CreateUserCommand
+      }
+
+  #ChangePassword
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword\ChangePasswordService:
+    arguments:
+      $entityManager: '@doctrine.orm.entity_manager'
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword\ChangePasswordHandler:
+    arguments:
+      - '@AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword\ChangePasswordService'
+    tags:
+    - {
+        name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
+        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword\ChangePasswordCommand
+      }
+
+  #ForgotPassword
+
+  ##ChangePassword
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\ChangePassword\ChangePasswordService:
+    arguments:
+      $entityManager: '@doctrine.orm.entity_manager'
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\ChangePassword\ChangePasswordHandler:
+    tags:
+      - {
+          name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
+          message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\ChangePassword\ChangePasswordCommand
+        }
+
+  ##CreateAndSendPasswordRecovery
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\CreateAndSendPasswordRecovery\CreateAndSendPasswordRecoveryService:
+    arguments:
+      $entityManager: '@doctrine.orm.entity_manager'
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\CreateAndSendPasswordRecovery\CreateAndSendPasswordRecoveryHandler:
+    tags:
+    - {
+        name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
+        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\CreateAndSendPasswordRecovery\CreateAndSendPasswordRecoveryCommand
+      }
+
+  ##BlockUser
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\BlockUser\BlockUserService:
+    arguments:
+      $entityManager: '@doctrine.orm.entity_manager'
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\BlockUser\BlockUserHandler:
+    tags:
+    - {
+        name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
+        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\BlockUser\BlockUserCommand
+      }
+
+  ##UnblockUser
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\UnblockUser\UnblockUserService:
+    arguments:
+      $entityManager: '@doctrine.orm.entity_manager'
+
+  AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\UnblockUser\UnblockUserHandler:
+    tags:
+    - {
+        name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
+        message: AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\UnblockUser\UnblockUserCommand
+      }

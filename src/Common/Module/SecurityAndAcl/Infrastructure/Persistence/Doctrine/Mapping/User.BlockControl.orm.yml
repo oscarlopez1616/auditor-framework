@@ -1,0 +1,12 @@
+AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\BlockControl:
+  type: embeddable
+
+  fields:
+    isBlocked:
+      type: boolean
+      nullable: false
+      options:
+        default: false
+    blockDate:
+      type: datetime
+      nullable: true

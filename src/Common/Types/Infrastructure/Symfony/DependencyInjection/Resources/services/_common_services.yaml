@@ -1,0 +1,18 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  #UploadCsvKeyValueCommand
+  AuditorFramework\Common\Types\Application\UploadCsvKeyValue\UploadCsvKeyValueHandler:
+    tags:
+      - {
+          name: 'prooph_service_bus.auditor_framework_command_bus.route_target',
+          message: AuditorFramework\Common\Types\Application\UploadCsvKeyValue\UploadCsvKeyValueCommand
+       }
+
+  AuditorFramework\Common\Types\Application\UploadCsvKeyValue\UploadCsvKeyValueService:
+
+  AuditorFramework\Common\Types\Domain\CloudDocumentManagerAdapter: '@AuditorFramework\Common\Types\Infrastructure\FileSystem\TheLeagueCloudDocumentManager'
+

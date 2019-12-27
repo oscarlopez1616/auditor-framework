@@ -1,0 +1,7 @@
+AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\NonIdentifiableRestResourceCollection:
+    exclusion_policy: ALL
+    properties:
+      data:
+        serialized_name: data
+        type: array<AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\Resource\NonIdentifiableRestResource>
+        expose: true

@@ -1,0 +1,24 @@
+-
+  id: 2a9ac062-e94e-4e2d-a514-f2620f94009e
+  userName: superadmin@auditor-framework.com
+  roles: ['role_super_admin']
+  active: true
+  userType: super_admin
+-
+  id: e5ceeb5d-625f-49dd-9ee4-76bc0b4cf313
+  userName: frontend@auditor-framework.com
+  roles: ['role_frontend_admin']
+  active: true
+  userType: frontend_admin
+-
+  id: 38a5e9eb-6dbd-4c1f-9b8f-53cec6b3b62d
+  userName: apigateway@auditor-framework.com
+  roles: ['role_admin']
+  active: true
+  userType: admin
+-
+  id: 245798e0-8aa1-4bca-9533-584853c78ad9
+  userName: taskrunner@auditor-framework.com
+  roles: ['role_task_runner']
+  active: true
+  userType: task_runner

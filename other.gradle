@@ -1,0 +1,90 @@
+import com.mysql.jdbc.Driver
+import com.mysql.jdbc.Connection
+import com.mysql.jdbc.Statement
+import java.sql.ResultSet
+import java.sql.ResultSetMetaData
+import io.github.cdimascio.dotenv.Dotenv
+
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+
+  dependencies {
+    classpath 'mysql:mysql-connector-java:5.1.37', 'io.github.cdimascio:java-dotenv:5.0.0'
+  }
+}
+
+ext.executeUpdateQuery = { String sql, Connection conn ->
+  Statement statement = conn.prepareStatement(sql)
+  statement.executeUpdate()
+}
+
+ext.executeMultipleUpdateQueries = { String[] queries, Connection conn ->
+  for (String sql : queries) {
+    executeUpdateQuery(sql, conn)
+  }
+}
+
+ext.executeQuery = { String sql, Connection conn ->
+  Statement statement = conn.prepareStatement(sql)
+  statement.execute()
+  ResultSet rs = statement.getResultSet()
+  return rs
+}
+
+task createOauthKeys{
+  doLast {
+    exec {
+      workingDir 'src/Common/Module/SecurityAndAcl/Infrastructure/TrikoderOauth2/Keys/'
+      commandLine 'su','-s','/bin/bash','-c','openssl genrsa -out private.key 2048', '--', 'www-data'
+    }
+
+    exec {
+      workingDir 'src/Common/Module/SecurityAndAcl/Infrastructure/TrikoderOauth2/Keys/'
+      commandLine 'su','-s','/bin/bash','-c','openssl rsa -in private.key -pubout -out public.key', '--', 'www-data'
+    }
+  }
+}
+
+task createReadModelSchema {
+  description 'Executes composer install and doctrine:schema:create'
+  doLast {
+    exec {
+      workingDir '.'
+      commandLine 'su', '-s', '/bin/bash','-c', 'composer install --no-interaction', '--', 'www-data'
+    }
+    try {
+      exec {
+        workingDir '.'
+        commandLine 'su', '-s', '/bin/bash', '-c', 'bin/console doctrine:schema:create', '--', 'www-data'
+      }
+      try {
+        exec {
+          workingDir '.'
+          commandLine 'su', '-s', '/bin/bash', '-c', 'bin/console doctrine:migrations:migrate --allow-no-migration --no-interaction', '--', 'www-data'
+        }
+      } catch (Exception exception) {
+        System.out.println("Something failed executing bin/console doctrine:migrations:migrate --allow-no-migration --no-interaction")
+      }
+    } catch (Exception e) {
+      System.out.println("Something failed executing bin/console doctrine:schema:create")
+    }
+  }
+}
+
+task createInitialUsers() {
+
+  description 'Create initial users in the SecurityAndAcl Module'
+
+  doLast {
+    try{
+      exec{
+        workingDir '.'
+        commandLine 'su', '-s', '/bin/bash','-c','bin/console auditor_framework:security-and-acl:create-initial-users','--','www-data'
+      }
+    }catch(Exception e){}
+  }
+}

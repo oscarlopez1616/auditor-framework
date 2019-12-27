@@ -1,0 +1,21 @@
+---
+- name: Setting environment ...
+  hosts: localhost
+  vars:
+    ansible_python_interpreter: "/usr/bin/python"
+
+  tasks:
+
+    - name: Create databases
+      mysql_db:
+        name: "{{item}}"
+        state: present
+        login_user: "{{ lookup('env','MYSQL_USER') }}"
+        login_password: "{{ lookup('env','MYSQL_PASSWORD') }}"
+        login_host: "{{ lookup('env','MYSQL_HOST') }}"
+        config_file: false
+      with_items:
+        - auditor_framework
+        - auditor_framework_event_store
+
+

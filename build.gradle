@@ -1,0 +1,353 @@
+import com.mysql.jdbc.Driver
+import com.mysql.jdbc.Connection
+import com.mysql.jdbc.Statement
+import java.sql.ResultSet
+import java.sql.ResultSetMetaData
+import io.github.cdimascio.dotenv.Dotenv
+
+apply from: 'other.gradle'
+
+Dotenv dotenv
+Connection readModelConnection
+Connection eventStoreConnection
+
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+
+  dependencies {
+    classpath 'mysql:mysql-connector-java:5.1.37', 'io.github.cdimascio:java-dotenv:5.0.0'
+  }
+}
+
+defaultTasks 'initReadModelConnection', 'initEventStoreConnection', 'createReadModelSchema','createEventStreamAndProjectionTable','createAuditorFrameworkEventStreams', 'createInitialUsers'
+
+ext.copyEnvFile = {
+  exec {
+    workingDir '.'
+    commandLine 'su','-s','/bin/bash','-c','cp .env.dist .env', '--', 'www-data'
+  }
+}
+
+ext.initDotenv = {
+  dotenv = Dotenv.configure()
+    .directory(".")
+    .ignoreIfMalformed()
+    .ignoreIfMissing()
+    .load()
+}
+
+ext.executeUpdateQuery = { String sql, Connection conn ->
+  Statement statement = conn.prepareStatement(sql)
+  statement.executeUpdate()
+}
+
+ext.executeMultipleUpdateQueries = { String[] queries, Connection conn ->
+  for (String sql : queries) {
+    executeUpdateQuery(sql, conn)
+  }
+}
+
+ext.executeQuery = { String sql, Connection conn ->
+  Statement statement = conn.prepareStatement(sql)
+  statement.execute()
+  ResultSet rs = statement.getResultSet()
+  return rs
+}
+
+copyEnvFile()
+initDotenv()
+
+task initReadModelConnection {
+  doFirst {
+    Driver driver = new Driver()
+    String WEB_READ_MODEL_DATABASE_USER = dotenv.get('WEB_READ_MODEL_DATABASE_USER')
+    String WEB_READ_MODEL_DATABASE_PASSWORD = dotenv.get('WEB_READ_MODEL_DATABASE_PASSWORD')
+    String WEB_READ_MODEL_DATABASE_NAME = dotenv.get('WEB_READ_MODEL_DATABASE_NAME')
+    String WEB_READ_MODEL_DATABASE_HOST = dotenv.get('WEB_READ_MODEL_DATABASE_HOST')
+
+    Properties properties = new Properties()
+    properties.put("user", WEB_READ_MODEL_DATABASE_USER)
+    properties.put("password", WEB_READ_MODEL_DATABASE_PASSWORD)
+
+    readModelConnection = driver.connect("jdbc:mysql://${WEB_READ_MODEL_DATABASE_HOST}/${WEB_READ_MODEL_DATABASE_NAME}", properties)
+  }
+}
+
+task initEventStoreConnection {
+  doFirst {
+    String EVENT_STORE_DATABASE_HOST = dotenv.get('EVENT_STORE_DATABASE_HOST')
+    String EVENT_STORE_DATABASE_NAME = dotenv.get('EVENT_STORE_DATABASE_NAME')
+    String EVENT_STORE_DATABASE_USER = dotenv.get('EVENT_STORE_DATABASE_USER')
+    String EVENT_STORE_DATABASE_PASSWORD = dotenv.get('EVENT_STORE_DATABASE_PASSWORD')
+
+    Properties properties = new Properties()
+    properties.put("user", EVENT_STORE_DATABASE_USER)
+    properties.put("password", EVENT_STORE_DATABASE_PASSWORD)
+    Driver driver = new Driver()
+    eventStoreConnection = driver.connect("jdbc:mysql://${EVENT_STORE_DATABASE_HOST}/${EVENT_STORE_DATABASE_NAME}", properties)
+  }
+}
+
+task fixOauth2Tables() {
+  description 'Fix oauth2_client.identifier to CHAR(36) in order to be able to store Uuids'
+
+  doLast {
+
+    String[] queries = [
+      "SET FOREIGN_KEY_CHECKS=0;",
+      "ALTER TABLE `oauth2_client` MODIFY identifier CHAR(36) NOT NULL;",
+      "ALTER TABLE `oauth2_access_token` MODIFY client CHAR(36) NOT NULL;",
+      "SET FOREIGN_KEY_CHECKS=1;"
+    ]
+
+    executeMultipleUpdateQueries(
+      queries,
+      readModelConnection
+    )
+  }
+}
+
+task createEventStreamAndProjectionTable {
+  doLast{
+    String EVENT_STORE_DATABASE_NAME = dotenv.get('EVENT_STORE_DATABASE_NAME')
+    String[] queries = [
+      "USE `${EVENT_STORE_DATABASE_NAME}`;",
+      "CREATE TABLE IF NOT EXISTS `_event_streams` \
+      (`no` BIGINT(20) NOT NULL AUTO_INCREMENT, \
+      `real_stream_name` VARCHAR(150) NOT NULL, \
+      `stream_name` CHAR(41) NOT NULL, \
+      `metadata` JSON, \
+      `category` VARCHAR(150), \
+      PRIMARY KEY (`no`), \
+      UNIQUE KEY `ix_rsn` (`real_stream_name`), \
+      KEY `ix_cat` (`category`) \
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;",
+      "CREATE TABLE IF NOT EXISTS `_projections` ( \
+      `no` BIGINT(20) NOT NULL AUTO_INCREMENT, \
+      `name` VARCHAR(150) NOT NULL, \
+      `position` JSON, \
+      `state` JSON, \
+      `status` VARCHAR(28) NOT NULL, \
+      `locked_until` CHAR(26), \
+      PRIMARY KEY (`no`), \
+      UNIQUE KEY `ix_name` (`name`) \
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;"
+    ]
+
+    executeMultipleUpdateQueries(
+      queries,
+      eventStoreConnection
+    )
+  }
+}
+
+task createAuditorFrameworkEventStreams{
+
+  description 'Create the event store database schema'
+
+  doFirst {
+    exec{
+      workingDir '.'
+      commandLine 'su', '-s', '/bin/bash','-c','bin/console auditor_framework:event-stream:create' ,'--', 'www-data'
+    }
+
+    ResultSet rs = executeQuery(
+      "SELECT stream_name FROM _event_streams limit 1",
+      eventStoreConnection
+    )
+    rs.next()
+    String EVENT_STREAM = rs.getString("stream_name");
+    executeUpdateQuery(
+      "alter table ${EVENT_STREAM} modify event_name varchar(500) not null;",
+      eventStoreConnection
+    )
+    rs.close();
+
+  }
+}
+
+task fixEventStream {
+  description 'Fix event StreamName to 255 char'
+
+  doLast {
+
+    ResultSet rs = executeQuery(
+      "SELECT stream_name FROM _event_streams limit 1",
+      eventStoreConnection
+    )
+    rs.next()
+    String EVENT_STREAM = rs.getString("stream_name");
+    executeUpdateQuery(
+      "alter table ${EVENT_STREAM} modify event_name varchar(3072) not null;",
+      eventStoreConnection
+    )
+    rs.close();
+  }
+}
+
+task resetAll() {
+
+  description 'reset All on dev environment'
+
+  doLast {
+    String WEB_READ_MODEL_DATABASE_NAME = dotenv.get('WEB_READ_MODEL_DATABASE_NAME')
+    String EVENT_STORE_DATABASE_NAME = dotenv.get('EVENT_STORE_DATABASE_NAME')
+    executeUpdateQuery(
+      "USE `${WEB_READ_MODEL_DATABASE_NAME}`;",
+      readModelConnection
+    )
+
+    ResultSet rs = executeQuery(
+      "SELECT * FROM migration_versions",
+      readModelConnection
+    )
+    ResultSetMetaData md = rs.getMetaData()
+    int columns = md.getColumnCount()
+    ArrayList list = new ArrayList(50)
+    while (rs.next()) {
+      HashMap row = new HashMap(columns);
+      for(int i = 1; i <= columns; ++i) {
+        row.put(md.getColumnName(i), rs.getObject(i))
+      }
+      list.add(row)
+    }
+
+    try {
+      executeUpdateQuery(
+        "DROP DATABASE ${WEB_READ_MODEL_DATABASE_NAME}",
+        readModelConnection
+      )
+    } catch (Exception e) {}
+      executeUpdateQuery(
+          "CREATE DATABASE ${WEB_READ_MODEL_DATABASE_NAME}",
+          readModelConnection
+    )
+
+    try {
+      executeUpdateQuery(
+          "DROP DATABASE ${EVENT_STORE_DATABASE_NAME}",
+          eventStoreConnection
+      )
+    } catch (Exception e) {}
+      executeUpdateQuery(
+          "CREATE DATABASE ${EVENT_STORE_DATABASE_NAME}",
+          eventStoreConnection
+      )
+
+    String[] eventStoreQueries = [
+      "USE `${EVENT_STORE_DATABASE_NAME}`;",
+      "CREATE TABLE IF NOT EXISTS `_event_streams` \
+      (`no` BIGINT(20) NOT NULL AUTO_INCREMENT, \
+      `real_stream_name` VARCHAR(150) NOT NULL, \
+      `stream_name` CHAR(41) NOT NULL, \
+      `metadata` JSON, \
+      `category` VARCHAR(150), \
+      PRIMARY KEY (`no`), \
+      UNIQUE KEY `ix_rsn` (`real_stream_name`), \
+      KEY `ix_cat` (`category`) \
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;",
+      "CREATE TABLE IF NOT EXISTS `_projections` ( \
+      `no` BIGINT(20) NOT NULL AUTO_INCREMENT, \
+      `name` VARCHAR(150) NOT NULL, \
+      `position` JSON, \
+      `state` JSON, \
+      `status` VARCHAR(28) NOT NULL, \
+      `locked_until` CHAR(26), \
+      PRIMARY KEY (`no`), \
+      UNIQUE KEY `ix_name` (`name`) \
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;"
+    ]
+
+    executeMultipleUpdateQueries(
+      eventStoreQueries,
+      eventStoreConnection
+    )
+
+    exec{
+      workingDir '.'
+      commandLine 'su', '-s', '/bin/bash','-c','bin/console d:s:u --force','--','www-data'
+    }
+
+    exec{
+      workingDir '.'
+      commandLine 'su', '-s', '/bin/bash','-c','bin/console auditor_framework:event-stream:create','--','www-data'
+    }
+
+    String[] readModelQueries = [
+      "USE `${WEB_READ_MODEL_DATABASE_NAME}`;",
+      "CREATE TABLE IF NOT EXISTS `migration_versions` ( \
+      `version` VARCHAR(14) NOT NULL, \
+      `executed_at` DATETIME NOT NULL, \
+      PRIMARY KEY (`version`) \
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;"
+    ]
+
+    executeMultipleUpdateQueries(
+      readModelQueries,
+      readModelConnection
+    )
+
+    for (HashMap row : list) {
+      executeUpdateQuery(
+        "INSERT INTO `migration_versions` VALUES (${row.get("version")}, '${row.get("executed_at")}');",
+        conn
+      )
+    }
+
+  }
+}
+
+task resetAllRabbitQueues{
+  doLast{
+    String RABBITMQ_HOST = dotenv.get('RABBITMQ_HOST')
+    String RABBITMQ_USER = dotenv.get('RABBITMQ_USER')
+    String RABBITMQ_PASSWORD = dotenv.get('RABBITMQ_PASSWORD')
+
+    String[] commands = [
+      "rabbitmqadmin purge queue name=sync_and_integration.basic_unit.crm  -u${RABBITMQ_USER} -p${RABBITMQ_PASSWORD} --host=${RABBITMQ_HOST} --port=15672"
+    ]
+
+    for (String command : commands) {
+      exec {
+        workingDir '.'
+        commandLine 'su', '-s', '/bin/bash','-c', command, '--', 'www-data'
+      }
+    }
+  }
+}
+
+task launchTaskRunners(){
+
+    doLast{
+      String[] commands = [
+        "auditor_framework:task_runner:activate_all_activable_loans",
+        "auditor_framework:task_runner:choose_selectable_loans",
+        "auditor_framework:task_runner:sign_all_contracts_signed_in_bs"
+      ]
+      while(true){
+        for (String command : commands) {
+          exec {
+            workingDir '.'
+            commandLine 'bin/console', command
+          }
+        }
+        sleep(1000)
+    }
+  }
+
+}
+
+initEventStoreConnection.dependsOn initReadModelConnection
+createAuditorFrameworkEventStreams.dependsOn initEventStoreConnection
+createAuditorFrameworkEventStreams.finalizedBy fixEventStream
+createReadModelSchema.finalizedBy fixOauth2Tables
+resetAll.dependsOn initReadModelConnection
+resetAll.dependsOn initEventStoreConnection
+resetAll.finalizedBy fixEventStream
+resetAll.finalizedBy resetAllRabbitQueues
+resetAll.finalizedBy fixOauth2Tables
+resetAll.finalizedBy createInitialUsers

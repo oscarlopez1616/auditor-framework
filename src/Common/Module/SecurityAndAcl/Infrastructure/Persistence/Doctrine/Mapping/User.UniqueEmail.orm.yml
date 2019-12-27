@@ -1,0 +1,10 @@
+AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail:
+  type: embeddable
+
+  fields:
+    value:
+      type: string
+      column: value
+      nullable: false
+      unique: true
+      length: 64

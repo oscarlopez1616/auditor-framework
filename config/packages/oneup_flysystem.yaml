@@ -1,0 +1,26 @@
+# Read the documentation: https://github.com/1up-lab/OneupFlysystemBundle/tree/master/Resources/doc/index.md
+services:
+    aws.s3_client:
+        class: Aws\S3\S3Client
+        arguments:
+            - version: 'latest'
+              region: "%env(AWS_REGION)%"
+              credentials:
+                  key: "%env(AWS_KEY)%"
+                  secret: "%env(AWS_SECRET)%"
+
+oneup_flysystem:
+    adapters:
+        awss3v3_adapter:
+            awss3v3:
+                client: aws.s3_client
+                bucket: "%env(AWS_S3_BUCKET)%"
+                prefix: "%env(AWS_S3_PREFIX)%"
+
+    filesystems:
+        default:
+            adapter: awss3v3_adapter
+            alias: default_filesystem
+        awss3v3_filesystem:
+            adapter: awss3v3_adapter
+            alias: awss3v3_filesystem

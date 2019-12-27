@@ -1,0 +1,3 @@
+imports:
+  - { resource: services/_common_services.yaml }
+  - { resource: infrastructure/_common_infrastructure.yaml }

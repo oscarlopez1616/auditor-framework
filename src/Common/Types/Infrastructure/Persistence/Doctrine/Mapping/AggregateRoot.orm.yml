@@ -1,0 +1,21 @@
+AuditorFramework\Common\Types\Domain\AggregateRoot:
+  type: mappedSuperclass
+  fields:
+    playHead:
+      type: integer
+      column: play_head
+      nullable: false
+    createdAt:
+      type: datetime_immutable
+      column: created_at
+    updatedAt:
+      type: datetime
+      column: updated_at
+      nullable: false
+
+#  lifecycleCallbacks:
+#    postLoad: [ fixVersionFromReadModel, fixNullableDoctrineEmbeddables, decrypt ]
+#    prePersist: [ encrypt ]
+
+  lifecycleCallbacks:
+    postLoad: [ fixVersionFromReadModel, fixNullableDoctrineEmbeddables ]

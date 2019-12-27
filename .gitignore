@@ -1,0 +1,30 @@
+.gradle
+gradle
+gradlew
+gradlew.bat
+###> symfony/framework-bundle ###
+/.env
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###
+composer.phar
+.idea
+.project
+.settings
+.DS_Store
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+.gradle/
+/src/Common/Module/SecurityAndAcl/Infrastructure/TrikoderOauth2/Keys/private.key
+/src/Common/Module/SecurityAndAcl/Infrastructure/TrikoderOauth2/Keys/public.key
+
+/etc/airflow/dags/__pycache__/
