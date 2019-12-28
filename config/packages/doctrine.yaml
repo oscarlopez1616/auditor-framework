@@ -1,0 +1,63 @@
+parameters:
+# Adds a fallback DATABASE_URL if the env var is not set.
+# This allows you to run cache:warmup even if your
+# environment variables are not available yet.
+# You should not need to change this value.
+
+doctrine:
+  dbal:
+    default_connection: default
+    connections:
+      default:
+        dbname: '%env(resolve:WEB_READ_MODEL_DATABASE_NAME)%'
+        host: '%env(resolve:WEB_READ_MODEL_DATABASE_HOST)%'
+        port: '%env(resolve:WEB_READ_MODEL_DATABASE_PORT)%'
+        user: '%env(resolve:WEB_READ_MODEL_DATABASE_USER)%'
+        password: '%env(resolve:WEB_READ_MODEL_DATABASE_PASSWORD)%'
+        driver: 'pdo_mysql'
+        server_version: '5.7'
+        charset: utf8mb4
+        logging: false
+        profiling: false
+        default_table_options:
+          charset: utf8mb4
+          collate: utf8mb4_unicode_ci
+      event_store:
+        dbname: '%env(resolve:EVENT_STORE_DATABASE_NAME)%'
+        host: '%env(resolve:EVENT_STORE_DATABASE_HOST)%'
+        port: '%env(resolve:EVENT_STORE_DATABASE_PORT)%'
+        user: '%env(resolve:EVENT_STORE_DATABASE_USER)%'
+        password: '%env(resolve:EVENT_STORE_DATABASE_PASSWORD)%'
+        driver: 'pdo_mysql'
+        server_version: '5.7'
+        charset: utf8mb4
+        default_table_options:
+          charset: utf8mb4
+          collate: utf8mb4_unicode_ci
+    types:
+      Uuid: TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\Doctrine\Type\DoctrineUuid
+      id: TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\Doctrine\Type\DoctrineId
+      UserId: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\Type\DoctrineUserId
+      Roles: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\Type\DoctrineRoles
+      PasswordRecoveryId: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\Type\DoctrinePasswordRecoveryId
+
+  orm:
+    auto_generate_proxy_classes: '%kernel.debug%'
+    naming_strategy: doctrine.orm.naming_strategy.underscore
+    auto_mapping: true
+    dql:
+      string_functions:
+        JSON_EXTRACT: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonExtract
+        JSON_SEARCH: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonSearch
+    mappings:
+      Common:
+        type: yml
+        dir: '%kernel.project_dir%/src/Common/Types/Infrastructure/Persistence/Doctrine/Mapping'
+        prefix: TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain
+        is_bundle: false
+      Common_Module_SecurityAndAcl:
+        type: yml
+        dir: '%kernel.project_dir%/src/Common/Module/SecurityAndAcl/Infrastructure/Persistence/Doctrine/Mapping'
+        prefix: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain
+        is_bundle: false
+
