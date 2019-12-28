@@ -3,9 +3,7 @@ declare(strict_types=1);
 
 namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain;
 
-use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AggregateRoot;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
-use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Uuid;
 
 interface WriteModelRepository
 {
