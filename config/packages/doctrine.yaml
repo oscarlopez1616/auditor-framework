@@ -40,7 +40,9 @@ doctrine:
       UserId: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\Type\DoctrineUserId
       Roles: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\Type\DoctrineRoles
       PasswordRecoveryId: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Persistence\Doctrine\Type\DoctrinePasswordRecoveryId
-
+      CamUnitId: AuditorFramework\Module\CamLandingGenerator\Infrastructure\Persistence\Doctrine\Type\DoctrineCamUnitId
+      CamUnitThumb: AuditorFramework\Module\CamLandingGenerator\Infrastructure\Persistence\Doctrine\Type\DoctrineCamUnitThumb
+      WebUrl: AuditorFramework\Module\CamLandingGenerator\Infrastructure\Persistence\Doctrine\Type\DoctrineWebUrl
   orm:
     auto_generate_proxy_classes: '%kernel.debug%'
     naming_strategy: doctrine.orm.naming_strategy.underscore

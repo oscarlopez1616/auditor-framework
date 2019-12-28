@@ -163,8 +163,6 @@ services:
         message: TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ChangePassword\ChangePasswordCommand
       }
 
-  #ForgotPassword
-
   ##ChangePassword
   TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Application\Command\ForgotPassword\ChangePassword\ChangePasswordService:
     arguments:

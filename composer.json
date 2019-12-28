@@ -10,7 +10,6 @@
     "ext-openssl": "*",
     "ext-soap": "*",
     "ext-sodium": "*",
-    "devio/pipedrive": "^2.0",
     "doctrine/doctrine-migrations-bundle": "^2.0",
     "doctrine/orm": "^2.6",
     "guzzlehttp/guzzle": "~6.3",
@@ -52,7 +51,6 @@
     "symfony/web-server-bundle": "^4.3",
     "symfony/yaml": "^4.3",
     "trikoder/oauth2-bundle": "dev-master",
-    "zendesk/zendesk_api_client_php": "^2.2",
     "zircote/swagger-php": "^3.0"
   },
   "require-dev": {
