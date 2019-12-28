@@ -41,7 +41,7 @@ services:
         '%env(SECURITY_AND_ACL_USER_FRONTEND_ADMIN_USER_NAME)%': '%env(SECURITY_AND_ACL_USER_FRONTEND_ADMIN_PASSWORD)%'
         '%env(SECURITY_AND_ACL_USER_API_GATEWAY_USER_NAME)%': '%env(SECURITY_AND_ACL_USER_API_GATEWAY_PASSWORD)%'
         '%env(SECURITY_AND_ACL_USER_TASK_RUNNER_USER_NAME)%': '%env(SECURITY_AND_ACL_USER_TASK_RUNNER_PASSWORD)%'
-      $initialSecurityAndAclUsersDataPath: '%kernel.project_dir%/src/Common/Module/SecurityAndAcl/Infrastructure/Ui/Cli/initial_users.yaml'
+      $initialSecurityAndAclUsersDataPath: '%kernel.project_dir%/vendor/oscarlopez1616/auditor-framework/src/Common/Module/SecurityAndAcl/Infrastructure/Ui/Cli/initial_users.yaml'
     tags: ['console.command']
 
   TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\ReadModel\ProophUserProjection:
