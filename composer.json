@@ -19,7 +19,6 @@
     "lambdish/phunctional": "^1.0",
     "league/flysystem-aws-s3-v3": "^1.0",
     "league/iso3166": "^2.1",
-    "mandrill/mandrill": "^1.0",
     "moneyphp/money": "^3.2",
     "nelmio/cors-bundle": "^1.5",
     "nyholm/psr7": "^1.1",
@@ -70,7 +69,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "10-dev"
+      "dev-master": "11-dev"
     },
     "symfony": {
       "allow-contrib": true
