@@ -70,7 +70,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "8-dev"
+      "dev-master": "9-dev"
     },
     "symfony": {
       "allow-contrib": true
