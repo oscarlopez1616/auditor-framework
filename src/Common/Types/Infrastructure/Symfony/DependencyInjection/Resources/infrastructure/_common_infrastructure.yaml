@@ -25,7 +25,7 @@ services:
 
   TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\WriteModelRepository: '@TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore\ProophWriteModelRepository'
 
-  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Cli\CreateNemuruEventStreamIfNotExistsController:
+  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Cli\CreateAuditorFrameworkEventStreamIfNotExistsController:
     arguments:
       - '@prooph_event_store.auditor_framework_event_store'
     tags: ['console.command']
