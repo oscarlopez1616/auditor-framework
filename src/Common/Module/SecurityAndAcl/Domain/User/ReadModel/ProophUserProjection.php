@@ -1,12 +1,4 @@
 <?php
-/*
- * This file is part of the Nemuru package.
- *
- * (c) 2018 Antai Venture Builder SL <admin@antaivb.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
 
 namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\ReadModel;
 
