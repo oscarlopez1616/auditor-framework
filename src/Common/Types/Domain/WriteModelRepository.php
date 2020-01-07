@@ -12,6 +12,8 @@ interface WriteModelRepository
      */
     public function save(array $aggregateRoots): void;
 
+    public function findEventByAggregateId(Uuid $uuid): AggregateRoot;
+
     /**
      * @param Uuid $uuid
      * @param string $eventName
