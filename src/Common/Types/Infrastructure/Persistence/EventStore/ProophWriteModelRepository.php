@@ -39,15 +39,12 @@ class ProophWriteModelRepository extends AggregateRepository implements WriteMod
         }
     }
 
-    /**
-     * @param Id $id
-     * @return AggregateRoot
-     */
-    public function findEventByAggregateId(Id $id): AggregateRoot
+    public function findEventByAggregateId(Id $id, string $aggregateRootClass): AggregateRoot
     {
-        $aggregateRoot = $this->getAggregateRoot($id->value());
+        $this->aggregateType = AggregateType::fromAggregateRootClass($aggregateRootClass);
+        $aggregateRoot = $this->getAggregateRoot('12836da8-0c46-491b-a1b2-85188f0c8b7a');
         if(is_null($aggregateRoot)){
-           throw new AggregateRootNotFoundInEventStoreException($id);
+            throw new AggregateRootNotFoundInEventStoreException($id);
         }
         return $aggregateRoot;
     }
