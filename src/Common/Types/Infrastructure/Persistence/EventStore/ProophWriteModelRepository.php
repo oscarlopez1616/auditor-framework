@@ -4,16 +4,16 @@ declare(strict_types=1);
 namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Persistence\EventStore;
 
 use Exception;
+use Prooph\EventSourcing\Aggregate\AggregateRepository;
+use Prooph\EventSourcing\Aggregate\AggregateType;
+use Prooph\EventSourcing\AggregateChanged;
+use Prooph\EventSourcing\EventStoreIntegration\AggregateRootDecorator;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AggregateRoot;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Uuid;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\WriteModelRepository;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\AggregateRootDuplicateInEventStoreException;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\AggregateRootNotFoundInEventStoreException;
-use Prooph\EventSourcing\Aggregate\AggregateRepository;
-use Prooph\EventSourcing\Aggregate\AggregateType;
-use Prooph\EventSourcing\AggregateChanged;
-use Prooph\EventSourcing\EventStoreIntegration\AggregateRootDecorator;
 use function Lambdish\Phunctional\map;
 
 class ProophWriteModelRepository extends AggregateRepository implements WriteModelRepository
@@ -36,6 +36,15 @@ class ProophWriteModelRepository extends AggregateRepository implements WriteMod
         } catch (Exception $e) {
             throw new AggregateRootDuplicateInEventStoreException();
         }
+    }
+
+    /**
+     * @param Uuid $uuid
+     * @return AggregateRoot
+     */
+    public function findEventByAggregateId(Uuid $uuid): AggregateRoot
+    {
+        return $this->getAggregateRoot($uuid->value());
     }
 
     /**
