@@ -10,6 +10,7 @@ use Prooph\EventSourcing\AggregateChanged;
 use Prooph\EventSourcing\EventStoreIntegration\AggregateRootDecorator;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AggregateRoot;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Id;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Uuid;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\WriteModelRepository;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\AggregateRootDuplicateInEventStoreException;
@@ -39,24 +40,28 @@ class ProophWriteModelRepository extends AggregateRepository implements WriteMod
     }
 
     /**
-     * @param Uuid $uuid
+     * @param Id $id
      * @return AggregateRoot
      */
-    public function findEventByAggregateId(Uuid $uuid): AggregateRoot
+    public function findEventByAggregateId(Id $id): AggregateRoot
     {
-        return $this->getAggregateRoot($uuid->value());
+        $aggregateRoot = $this->getAggregateRoot($id->value());
+        if(is_null($aggregateRoot)){
+           throw new AggregateRootNotFoundInEventStoreException($id);
+        }
+        return $aggregateRoot;
     }
 
     /**
-     * @param Uuid $uuid
+     * @param Id $id
      * @param string $eventName
      * @return Event[]
      */
-    public function findEventByAggregateIdAndEventName(Uuid $uuid, string $eventName): array
+    public function findEventByAggregateIdAndEventName(Id $id, string $eventName): array
     {
         try {
             /** @var AggregateRoot $aggregateRoot */
-            $aggregateRoot = $this->getAggregateRoot($uuid->value());
+            $aggregateRoot = $this->getAggregateRoot($id->value());
             /** @var AggregateRootDecorator $aggregateRootDecorator */
             $aggregateRootDecorator = $this->aggregateTranslator->getAggregateRootDecorator();
             /** @var AggregateChanged[] $recordedEvents */
@@ -66,7 +71,7 @@ class ProophWriteModelRepository extends AggregateRepository implements WriteMod
                 die();
             }
         } catch (Exception $e) {
-            throw new AggregateRootNotFoundInEventStoreException($uuid);
+            throw new AggregateRootNotFoundInEventStoreException($id);
         }
     }
 }
