@@ -12,12 +12,12 @@ interface WriteModelRepository
      */
     public function save(array $aggregateRoots): void;
 
-    public function findEventByAggregateId(Id $id, string $aggregateRootClass): AggregateRoot;
+    public function findAggregateByAggregateId(Id $id, string $aggregateRootClass): AggregateRoot;
 
     /**
      * @param Id $id
      * @param string $eventName
      * @return Event[]
      */
-    public function findEventByAggregateIdAndEventName(Id $id, string $eventName): array;
+    public function findEventsByAggregateIdAndEventName(Id $id, string $eventName): array;
 }

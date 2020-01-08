@@ -39,7 +39,7 @@ class ProophWriteModelRepository extends AggregateRepository implements WriteMod
         }
     }
 
-    public function findEventByAggregateId(Id $id, string $aggregateRootClass): AggregateRoot
+    public function findAggregateByAggregateId(Id $id, string $aggregateRootClass): AggregateRoot
     {
         $this->aggregateType = AggregateType::fromAggregateRootClass($aggregateRootClass);
         $aggregateRoot = $this->getAggregateRoot('12836da8-0c46-491b-a1b2-85188f0c8b7a');
@@ -54,7 +54,7 @@ class ProophWriteModelRepository extends AggregateRepository implements WriteMod
      * @param string $eventName
      * @return Event[]
      */
-    public function findEventByAggregateIdAndEventName(Id $id, string $eventName): array
+    public function findEventsByAggregateIdAndEventName(Id $id, string $eventName): array
     {
         try {
             /** @var AggregateRoot $aggregateRoot */
