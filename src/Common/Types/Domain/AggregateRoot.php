@@ -5,12 +5,12 @@ namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain;
 
 use DateTime;
 use DateTimeImmutable;
-use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
-use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\EventNotFoundInTheAggregateRootUnPersistedRecordedEventsException;
-use TheCodeFighters\Bundle\AuditorFramework\Common\Utils\FixNullableValueObjectsService;
 use Prooph\EventSourcing\AggregateChanged;
 use Prooph\EventSourcing\AggregateRoot as ProophAggregateRoot;
 use ReflectionException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\EventNotFoundInTheAggregateRootUnPersistedRecordedEventsException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Utils\FixNullableValueObjectsService;
 use function Lambdish\Phunctional\map;
 
 abstract class AggregateRoot extends ProophAggregateRoot
@@ -40,11 +40,20 @@ abstract class AggregateRoot extends ProophAggregateRoot
      */
     protected $unPersistedRecordedEvents;
 
+    /**
+     * @var Metadata
+     */
+    protected $metadata;
+
 
     protected function __construct()
     {
         $this->playHead = 0;
         $this->unPersistedRecordedEvents = [];
+        $this->metadata = new Metadata(
+            $this->id,
+            self::class
+        );
         parent::__construct();
     }
 
@@ -61,6 +70,16 @@ abstract class AggregateRoot extends ProophAggregateRoot
     public function updatedAt(): DateTime
     {
         return $this->updatedAt;
+    }
+
+    public function playHead(): int
+    {
+        return $this->playHead;
+    }
+
+    public function metadata(): Metadata
+    {
+        return $this->metadata;
     }
 
 
