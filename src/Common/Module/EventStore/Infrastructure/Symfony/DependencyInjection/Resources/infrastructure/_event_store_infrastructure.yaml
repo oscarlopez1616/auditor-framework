@@ -1,0 +1,10 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+    TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain\EventStoreRepository: '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Infrastructure\Persistence\Doctrine\MysqlEventStoreRepository'
+
+    TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Infrastructure\Persistence\Doctrine\MysqlEventStoreRepository:
+

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Infrastructure\Symfony\DependencyInjection;
+namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Infrastructure\Symfony\DependencyInjection;
 
 use Exception;
 use Symfony\Component\Config\FileLocator;
@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class SecurityAndAclExtension extends Extension
+class EventStoreExtension extends Extension
 {
     /**
      * @param array $configs
