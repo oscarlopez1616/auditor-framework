@@ -6,6 +6,7 @@ namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domai
 use DateTime;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Id;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Metadata;
+use DateTimeImmutable;
 
 class EventStoreItem
 {
@@ -35,7 +36,7 @@ class EventStoreItem
     private $metadata;
 
     /**
-     * @var DateTime
+     * @var DateTimeImmutable
      */
     private $createdAt;
 
@@ -46,7 +47,7 @@ class EventStoreItem
         string $eventName,
         string $payload,
         Metadata $metadata,
-        DateTime $createdAt
+        DateTimeImmutable $createdAt
     ) {
         $this->playHead = $playHead;
         $this->eventId = $eventId;

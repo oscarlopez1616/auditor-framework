@@ -11,6 +11,7 @@ use TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain\Even
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AggregateRoot;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
 use function Lambdish\Phunctional\map;
+use DateTimeImmutable;
 
 class MysqlEventStoreRepository implements EventStoreRepository
 {
@@ -48,13 +49,13 @@ class MysqlEventStoreRepository implements EventStoreRepository
         return map(
             function (Event $event) use ($aggregateRoot): EventStoreItem
             {
-                new EventStoreItem(
+                return new EventStoreItem(
                     $aggregateRoot->playHead(),
                     $aggregateRoot->id(),
                     get_class($event),
                     json_encode($event->serialize()),
                     $aggregateRoot->metadata(),
-                    $aggregateRoot->updatedAt()
+                    DateTimeImmutable::createFromMutable($aggregateRoot->updatedAt())
                 );
             }
             ,
