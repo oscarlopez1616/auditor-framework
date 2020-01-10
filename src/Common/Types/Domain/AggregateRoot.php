@@ -46,12 +46,12 @@ abstract class AggregateRoot extends ProophAggregateRoot
     protected $metadata;
 
 
-    protected function __construct()
+    protected function __construct(Id $id)
     {
         $this->playHead = 0;
         $this->unPersistedRecordedEvents = [];
         $this->metadata = new Metadata(
-            $this->id,
+            $id,
             self::class
         );
         parent::__construct();
