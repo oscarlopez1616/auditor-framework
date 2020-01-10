@@ -22,7 +22,7 @@ services:
 
   TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Ui\Http\Rest\DataTransformer\NonIdentifiableDtoResourceToRestResourceDataTransformer:
 
-  TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\WriteModelRepository: '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Infrastructure\Persistence\Doctrine\MysqlEventStoreRepository'
+  TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain\EventStoreRepository: '@TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Infrastructure\Persistence\Doctrine\MysqlEventStoreRepository'
 
   TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Infrastructure\Persistence\Doctrine\MysqlEventStoreRepository:
     arguments:
