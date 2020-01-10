@@ -1,17 +1,19 @@
 TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain\EventStoreItem:
   type: entity
+  id:
+    eventId:
+      type: Id
+      column: event_id
+      nullable: false
   fields:
     playHead:
       type: integer
       column: play_head
       nullable: false
-    eventId:
-      type: Id
-      column: eventId
-      nullable: false
+
     eventName:
       type: string
-      column: eventId
+      column: event_name
       nullable: false
     payload:
       type: json
