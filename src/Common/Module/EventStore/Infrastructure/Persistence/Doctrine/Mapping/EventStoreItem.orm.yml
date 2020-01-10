@@ -9,6 +9,10 @@ TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain\EventSto
       type: Id
       column: eventId
       nullable: false
+    eventName:
+      type: string
+      column: eventId
+      nullable: false
     payload:
       type: json
       column: payload

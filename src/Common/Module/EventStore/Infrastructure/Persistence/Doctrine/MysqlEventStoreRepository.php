@@ -28,10 +28,10 @@ class MysqlEventStoreRepository implements EventStoreRepository
     {
         try {
             map(
-                function () use ($aggregateRoot):void{
-                    $this->entityManager->persist($aggregateRoot);
+                function (EventStoreItem $eventStoreItem) :void{
+                    $this->entityManager->persist($eventStoreItem);
                 },
-                $this->eventStoreItemsFromAggregateRoot()
+                $this->eventStoreItemsFromAggregateRoot($aggregateRoot)
             );
             $this->entityManager->flush();
         } catch (UniqueConstraintViolationException $e) {
