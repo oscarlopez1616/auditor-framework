@@ -69,7 +69,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "05-rev-dev"
+      "dev-master": "0.5-dev"
     },
     "symfony": {
       "allow-contrib": true
