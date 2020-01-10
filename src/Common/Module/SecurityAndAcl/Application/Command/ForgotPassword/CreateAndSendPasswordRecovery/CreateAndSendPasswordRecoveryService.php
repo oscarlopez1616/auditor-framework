@@ -5,11 +5,11 @@ namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\A
 
 use Doctrine\DBAL\ConnectionException;
 use Doctrine\ORM\EntityManager;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain\EventStoreRepository;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\Exception\TransactionalApplicationException;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\TransactionAwareApplicationService;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AmqpCommandPublisherService;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\DomainException;
-use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\WriteModelRepository;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\Event\PasswordRecoveryWasCreatedEvent;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\PasswordRecovery;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\PasswordRecovery\PasswordRecoveryId;
@@ -40,7 +40,7 @@ class CreateAndSendPasswordRecoveryService extends TransactionAwareApplicationSe
         PasswordRecoveryReadModelRepository $passwordRecoveryReadModelRepository,
         AmqpCommandPublisherService $amqpCommandPublisherService,
         EntityManager $entityManager,
-        WriteModelRepository $writeModelRepository
+        EventStoreRepository $writeModelRepository
     ) {
         parent::__construct($entityManager, $writeModelRepository);
         $this->userReadModelRepository = $userReadModelRepository;

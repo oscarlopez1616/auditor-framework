@@ -28,6 +28,6 @@ class SecurityAndAclExtension extends Extension
      */
     private function loadServiceConfigurations(YamlFileLoader $loader): void
     {
-        $loader->load('Resources/event_store_extension.yaml');
+        $loader->load('Resources/security_and_acl_extension.yaml');
     }
 }

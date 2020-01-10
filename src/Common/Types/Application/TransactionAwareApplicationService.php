@@ -5,7 +5,7 @@ namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application;
 
 use Doctrine\DBAL\ConnectionException;
 use Doctrine\ORM\EntityManagerInterface;
-use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\WriteModelRepository;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain\EventStoreRepository;
 
 abstract class TransactionAwareApplicationService implements ApplicationService
 {
@@ -15,11 +15,11 @@ abstract class TransactionAwareApplicationService implements ApplicationService
     private $entityManager;
 
     /**
-     * @var WriteModelRepository
+     * @var EventStoreRepository
      */
     private $writeModelRepository;
 
-    public function __construct(EntityManagerInterface $entityManager, WriteModelRepository $writeModelRepository)
+    public function __construct(EntityManagerInterface $entityManager, EventStoreRepository $writeModelRepository)
     {
         $this->entityManager = $entityManager;
         $this->writeModelRepository = $writeModelRepository;
@@ -49,10 +49,5 @@ abstract class TransactionAwareApplicationService implements ApplicationService
     protected function saveInWriteModel(array $aggregateRoots): void
     {
         $this->writeModelRepository->save($aggregateRoots);
-    }
-
-    public function writeModelRepository(): WriteModelRepository
-    {
-        return $this->writeModelRepository;
     }
 }

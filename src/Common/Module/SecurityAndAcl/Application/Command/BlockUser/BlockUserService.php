@@ -5,10 +5,10 @@ namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\A
 
 use Doctrine\DBAL\ConnectionException;
 use Doctrine\ORM\EntityManagerInterface;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain\EventStoreRepository;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\Exception\TransactionalApplicationException;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Application\TransactionAwareApplicationService;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\DomainException;
-use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\WriteModelRepository;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserId;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserReadModelRepository;
 use Throwable;
@@ -23,7 +23,7 @@ class BlockUserService extends TransactionAwareApplicationService
     public function __construct(
         UserReadModelRepository $userReadModelRepository,
         EntityManagerInterface $entityManager,
-        WriteModelRepository $writeModelRepository
+        EventStoreRepository $writeModelRepository
     )
     {
         parent::__construct($entityManager, $writeModelRepository);
