@@ -72,7 +72,6 @@ abstract class Event
         $event = new ReflectionClass($eventType());
 
         $event->unserializePayload($eventStoreItem->payload());
-        $event->getData();
         return $event;
     }
 
