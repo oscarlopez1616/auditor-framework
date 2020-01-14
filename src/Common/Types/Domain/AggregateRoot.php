@@ -5,15 +5,13 @@ namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain;
 
 use DateTime;
 use DateTimeImmutable;
-use Prooph\EventSourcing\AggregateChanged;
-use Prooph\EventSourcing\AggregateRoot as ProophAggregateRoot;
 use ReflectionException;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Exception\EventNotFoundInTheAggregateRootUnPersistedRecordedEventsException;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Utils\FixNullableValueObjectsService;
 use function Lambdish\Phunctional\map;
 
-abstract class AggregateRoot extends ProophAggregateRoot
+abstract class AggregateRoot
 {
     /**
      * @var int
@@ -88,7 +86,7 @@ abstract class AggregateRoot extends ProophAggregateRoot
         return $this->id->value();
     }
 
-    public function recordThat(AggregateChanged $event): void
+    public function recordThat(Event $event): void
     {
         $this->unPersistedRecordedEvents[] = $event;
         parent::recordThat($event);
@@ -123,14 +121,14 @@ abstract class AggregateRoot extends ProophAggregateRoot
         throw new EventNotFoundInTheAggregateRootUnpersistedRecordedEventsException($this->id(), $eventClassNamespace);
     }
 
-    public function apply(AggregateChanged $event): void
+    public function apply(Event $event): void
     {
         ++$this->playHead;
         $this->version = $this->playHead;
         $this->handleRecursively($event);
     }
 
-    protected function handleRecursively(AggregateChanged $event): void
+    protected function handleRecursively(Event $event): void
     {
         $this->handle($event);
         map(
@@ -143,7 +141,7 @@ abstract class AggregateRoot extends ProophAggregateRoot
 
     }
 
-    protected function handle(AggregateChanged $event): void
+    protected function handle(Event $event): void
     {
         $functionName = 'apply' . $this->getClassNameWithoutNamespace(get_class($event));
         if (method_exists($this, $functionName)) {

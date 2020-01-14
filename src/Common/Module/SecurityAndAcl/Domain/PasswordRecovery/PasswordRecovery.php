@@ -47,7 +47,7 @@ class PasswordRecovery extends AggregateRoot
 
     public function applyPasswordRecoveryWasCreatedEvent(PasswordRecoveryWasCreatedEvent $event): void
     {
-        $this->id = $event->id();
+        $this->id = $event->metadata()->aggregateId();
         $this->userId = $event->userId();
         $this->hasBeenUsed = $event->hasBeenUsed();
         $this->expirationDate = $event->expirationDate();

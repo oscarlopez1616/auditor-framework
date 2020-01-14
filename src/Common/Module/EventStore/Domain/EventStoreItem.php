@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain;
 
-use DateTime;
+use DateTimeImmutable;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Id;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Metadata;
-use DateTimeImmutable;
 
 class EventStoreItem
 {
@@ -19,11 +19,6 @@ class EventStoreItem
      * @var Id
      */
     private $eventId;
-
-    /**
-     * @var string
-     */
-    private $eventName;
 
     /**
      * @var string
@@ -44,14 +39,12 @@ class EventStoreItem
     public function __construct(
         int $playHead,
         Id $eventId,
-        string $eventName,
         string $payload,
         Metadata $metadata,
         DateTimeImmutable $createdAt
     ) {
         $this->playHead = $playHead;
         $this->eventId = $eventId;
-        $this->eventName = $eventName;
         $this->payload = $payload;
         $this->metadata = $metadata;
         $this->createdAt = $createdAt;
@@ -67,14 +60,14 @@ class EventStoreItem
         return $this->eventId;
     }
 
-    public function eventName(): string
+    public function event(): Event
     {
-        return $this->eventName;
+        //TODO
     }
 
-    public function payload(): string
+    public function payload(): array
     {
-        return $this->payload;
+        return json_decode($this->payload, true);
     }
 
     public function metadata(): Metadata
@@ -82,7 +75,7 @@ class EventStoreItem
         return $this->metadata;
     }
 
-    public function createdAt(): DateTime
+    public function createdAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }

@@ -27,13 +27,13 @@ class PasswordRecoveryWasUsedEvent extends Event
         return PasswordRecoveryId::class;
     }
 
-    protected function internalUnSerialize(): void
+    protected function internalUnSerializePayload(): void
     {
         $payload = $this->payload();
         $this->hasBeenUsed = boolval($payload['has_been_used']);
     }
 
-    public function internalSerialize(): array
+    public function internalSerializePayload(): array
     {
        return [
            'has_been_used' => $this->hasBeenUsed

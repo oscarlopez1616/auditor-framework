@@ -24,7 +24,7 @@ class RoleWasAddedToUserEvent extends Event
         return UserId::class;
     }
 
-    protected function internalUnSerialize(): void
+    protected function internalUnSerializePayload(): void
     {
         $payload = $this->payload();
 
@@ -37,7 +37,7 @@ class RoleWasAddedToUserEvent extends Event
         $this->roles = $roles;
     }
 
-    public function internalSerialize(): array
+    public function internalSerializePayload(): array
     {
         $payload = ['user' => ['roles' => []]];
 

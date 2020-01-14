@@ -28,14 +28,14 @@ class UserPasswordWasChangedEvent extends Event
         return UserId::class;
     }
 
-    protected function internalUnSerialize(): void
+    protected function internalUnSerializePayload(): void
     {
         $payload = $this->payload();
 
         $this->newPassword = $payload['newPassword'];
     }
 
-    public function internalSerialize(): array
+    public function internalSerializePayload(): array
     {
         return [
             'newPassword' => $this->newPassword

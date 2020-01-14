@@ -29,7 +29,7 @@ class UserWasBlockedEvent extends Event
         return UserId::class;
     }
 
-    protected function internalUnSerialize(): void
+    protected function internalUnSerializePayload(): void
     {
         $payload = $this->payload();
 
@@ -39,7 +39,7 @@ class UserWasBlockedEvent extends Event
         );
     }
 
-    public function internalSerialize(): array
+    public function internalSerializePayload(): array
     {
         return [
             'is_blocked' => $this->blockControl->isBlocked(),

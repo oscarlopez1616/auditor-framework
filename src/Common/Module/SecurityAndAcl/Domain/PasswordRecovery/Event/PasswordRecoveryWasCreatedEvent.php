@@ -48,7 +48,7 @@ class PasswordRecoveryWasCreatedEvent extends Event
     /**
      * @throws Exception
      */
-    protected function internalUnSerialize(): void
+    protected function internalUnSerializePayload(): void
     {
         $payload = $this->payload;
         $this->userId = new UserId($payload['passwordRecovery']['userId']);
@@ -56,7 +56,7 @@ class PasswordRecoveryWasCreatedEvent extends Event
         $this->expirationDate = new DateTime($payload['passwordRecovery']['expirationDate']);
     }
 
-    public function internalSerialize(): array
+    public function internalSerializePayload(): array
     {
         return [
             'passwordRecovery' => [

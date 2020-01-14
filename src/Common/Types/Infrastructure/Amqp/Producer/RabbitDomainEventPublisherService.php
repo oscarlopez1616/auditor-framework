@@ -27,7 +27,7 @@ class RabbitDomainEventPublisherService implements AmqpCommandPublisherService
         $this->producer->publish(
             json_encode(
                 [
-                    'id' => $event->id()->value(),
+                    'id' => $event->metadata()->id()->value(),
                     'payload' => $event->payload(),
                     'metadata' => $event->metadata(),
                     'created_at' => $event->createdAt()->format('Y-m-d H:i:s'),

@@ -6,76 +6,105 @@ namespace TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event;
 
 use DateTime;
 use Exception;
+use ReflectionClass;
+use ReflectionException;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain\EventStoreItem;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain\MetadataEnrichmentField;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Id;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Metadata;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exception\DateInvalidArgumentInfrastructureException;
-use Prooph\EventSourcing\AggregateChanged;
 
-abstract class Event extends AggregateChanged
+abstract class Event
 {
     /**
-     * @var Id
+     * @var Metadata
      */
-    protected $id;
+    protected $metadata;
+
+    /**
+     * @var int
+     */
+    protected $version;
 
     /**
      * @var DateTime
      */
-    protected $updatedAt;
+    protected $createdAt;
 
-    public function __construct(Id $id)
-    {
-        $this->id = $id;
+    /**
+     * Event constructor.
+     * @param Id $id
+     * @param MetadataEnrichmentField[] $metadataEnrichmentFields
+     * @param int $version
+     */
+    public function __construct(
+        Id $id,
+        array $metadataEnrichmentFields = [],
+        int $version = 0
+    ) {
+        $this->metadata = new Metadata(
+            $id,
+            get_parent_class($this),
+            $metadataEnrichmentFields
+        );
+
+        $this->version = $version;
+
         try {
-            $this->updatedAt = new DateTime();
+            $this->createdAt = new DateTime();
         } catch (Exception $e) {
             throw new DateInvalidArgumentInfrastructureException('An error has ocurred when creating a DateTime');
         }
-        parent::__construct($id->value(), $this->serialize());
     }
 
     /**
-     * @return Id
+     * @param EventStoreItem $eventStoreItem
+     * @return static
+     * @throws ReflectionException
      */
-    public function id(): Id
+    public static function fromEventStoreItem(EventStoreItem $eventStoreItem): self
     {
-        return $this->id;
+        $eventType = $eventStoreItem->metadata()->aggregateType();
+
+        /**
+         * @var Event $event
+         */
+        $event = new ReflectionClass($eventType());
+
+        $event->unserializePayload($eventStoreItem->payload());
+        $event->getData();
+        return $event;
     }
 
-    public function updatedAt(): DateTime
+    public function metadata(): Metadata
     {
-        return $this->updatedAt;
-    }
-
-    public function unserialize(): void
-    {
-        $specializedIdClass = $this->getIdClass();
-        $this->id = new $specializedIdClass($this->aggregateId());
-        $this->internalUnSerialize();
-        $this->updatedAt = DateTime::createFromFormat(
-            DateTime::ATOM,
-            $this->payload()['updated_at']
-        );
-    }
-
-    public function serialize(): array
-    {
-        return array_merge($this->internalSerialize(), ['updated_at' => $this->updatedAt->format(DateTime::ATOM)]);
+        return $this->metadata;
     }
 
     abstract protected function getIdClass(): string;
 
-    abstract protected function internalUnSerialize(): void;
-
-    abstract public function internalSerialize(): array;
-
     public function version(): int
     {
-        $this->unserialize();
-        return $this->metadata['_aggregate_version'];
+        return $this->version;
     }
 
-    public function changeVersion(int $version)
+    public function createdAt(): DateTime
     {
-        $this->setVersion($version);
+        return $this->createdAt;
     }
+
+    public function serializePayload(): array
+    {
+        return $this->internalSerializePayload();
+    }
+
+    abstract public function internalSerializePayload(): array;
+
+    public function unserializePayload(array $payload): void
+    {
+        $this->internalUnSerializePayload($payload);
+    }
+
+    abstract protected function internalUnSerializePayload(array $payload): void;
+
 }

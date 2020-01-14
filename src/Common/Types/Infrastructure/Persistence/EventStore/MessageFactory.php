@@ -14,7 +14,7 @@ class MessageFactory extends FQCNMessageFactory
         $message = parent::createMessageFromArray($messageName, $messageData);
 
         if ($message instanceof Event) {
-            $message->unserialize();
+            $message->unserializePayload();
         }
 
         return $message;

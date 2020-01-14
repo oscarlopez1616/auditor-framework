@@ -3,15 +3,18 @@ declare(strict_types=1);
 
 namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Infrastructure\Persistence\Doctrine;
 
+use DateTimeImmutable;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\ORM\EntityManager;
 use TheCodeFighters\Bundle\AuditorFramework\Common\EventStore\Infrastructure\Exception\EventStoreItemDuplicateInEventStoreException;
-use TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain\EventStoreItem;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain\MetadataEnrichmentField;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Module\EventStore\Domain\EventStoreRepository;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\AggregateRoot;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Id;
+use WebCamScrapper\Module\CamLandingGenerator\Domain\Affiliate;
+use WebCamScrapper\Module\CamLandingGenerator\Domain\Exception\AggregateRootNotFoundByIdException;
 use function Lambdish\Phunctional\map;
-use DateTimeImmutable;
 
 class MysqlEventStoreRepository implements EventStoreRepository
 {
@@ -29,7 +32,7 @@ class MysqlEventStoreRepository implements EventStoreRepository
     {
         try {
             map(
-                function (EventStoreItem $eventStoreItem) :void{
+                function (MetadataEnrichmentField $eventStoreItem) :void{
                     $this->entityManager->persist($eventStoreItem);
                 },
                 $this->eventStoreItemsFromAggregateRoot($aggregateRoot)
@@ -40,20 +43,29 @@ class MysqlEventStoreRepository implements EventStoreRepository
         }
     }
 
+    public function findAggregateByAggregateId(Id $aggregateRootId): AggregateRoot
+    {
+        $aggregateRoot = $this->entityManager->getRepository(MetadataEnrichmentField::class)->findOneBy(array('id' => $aggregateRootId));
+        if (!$aggregateRoot instanceof AggregateRoot) {
+            throw new AggregateRootNotFoundByIdException($aggregateRootId);
+        }
+        return $aggregateRoot;
+    }
+
     /**
      * @param AggregateRoot $aggregateRoot
-     * @return EventStoreItem[]
+     * @return MetadataEnrichmentField[]
      */
     private function eventStoreItemsFromAggregateRoot(AggregateRoot $aggregateRoot): array
     {
         return map(
-            function (Event $event) use ($aggregateRoot): EventStoreItem
+            function (Event $event) use ($aggregateRoot): MetadataEnrichmentField
             {
-                return new EventStoreItem(
+                return new MetadataEnrichmentField(
                     $aggregateRoot->playHead(),
                     $aggregateRoot->id(),
                     get_class($event),
-                    json_encode($event->serialize()),
+                    json_encode($event->serializePayload()),
                     $aggregateRoot->metadata(),
                     DateTimeImmutable::createFromMutable($aggregateRoot->updatedAt())
                 );

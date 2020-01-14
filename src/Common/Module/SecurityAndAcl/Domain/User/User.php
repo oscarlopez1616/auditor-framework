@@ -76,7 +76,7 @@ class User extends AggregateRoot implements UserInterface, ClientEntityInterface
 
     protected function applyUserWasCreatedEvent(UserWasCreatedEvent $event): void
     {
-        $this->id = $event->id();
+        $this->id = $event->metadata()->aggregateId();
         $this->userName = $event->userName();
         $this->roles = $event->roles();
         $this->password = $event->password();

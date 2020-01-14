@@ -65,7 +65,7 @@ class UserWasCreatedEvent extends Event
     /**
      * @throws Exception
      */
-    protected function internalUnSerialize(): void
+    protected function internalUnSerializePayload(): void
     {
         $payload = $this->payload();
 
@@ -84,7 +84,7 @@ class UserWasCreatedEvent extends Event
         $this->userType = new UserType($payload['user_type']);
     }
 
-    public function internalSerialize(): array
+    public function internalSerializePayload(): array
     {
         $payload = [
             'user_name' => $this->userName->value(),
