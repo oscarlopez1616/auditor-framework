@@ -35,39 +35,14 @@ class UserControllerVoter extends ControllerVoter
     {
         return [
             self::GET_PASSWORD_RECOVERY => [
-                new Role(Role::ROLE_COMMERCIAL),
-                new Role(Role::ROLE_RISK),
-                new Role(Role::ROLE_MERCHANT),
-                new Role(Role::ROLE_FRONTEND_LANDING),
             ],
             self::POST_USER => [
-                new Role(Role::ROLE_COMMERCIAL),
-                new Role(Role::ROLE_RISK),
-                new Role(Role::ROLE_MERCHANT),
-                new Role(Role::ROLE_BORROWER),
-                new Role(Role::ROLE_FRONTEND_LANDING),
             ],
             self::PROCESS_PATCH_ADD_ROLE_TO_USER => [
-                new Role(Role::ROLE_COMMERCIAL),
-                new Role(Role::ROLE_RISK),
-                new Role(Role::ROLE_MERCHANT),
-                new Role(Role::ROLE_BORROWER),
-                new Role(Role::ROLE_FRONTEND_LANDING),
             ],
             self::PROCESS_PATCH_CHANGE_PASSWORD => [
-                new Role(Role::ROLE_COMMERCIAL),
-                new Role(Role::ROLE_RISK),
-                new Role(Role::ROLE_MERCHANT),
-                new Role(Role::ROLE_BORROWER),
-                new Role(Role::ROLE_FRONTEND_LANDING),
-                new Role(Role::ROLE_FRONTEND_LANDING),
             ],
             self::PROCESS_PATCH_FORGOT_PASSWORD_CREATE_AND_SEND_PASSWORD_RECOVERY => [
-                new Role(Role::ROLE_COMMERCIAL),
-                new Role(Role::ROLE_RISK),
-                new Role(Role::ROLE_MERCHANT),
-                new Role(Role::ROLE_BORROWER),
-                new Role(Role::ROLE_FRONTEND_LANDING),
             ],
             self::PROCESS_PATCH_BLOCK_USER => [
                 new Role(Role::ROLE_SUPER_ADMIN),

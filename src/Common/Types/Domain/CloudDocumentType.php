@@ -7,27 +7,10 @@ use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Infrastructure\Exceptio
 
 class CloudDocumentType extends ValueObject
 {
-    public const DOCUMENT_ID_FRONT = 'document_id_front';
-    public const DOCUMENT_ID_BACK = 'document_id_back';
-    public const ACCOUNT_HOLDER_ACCOUNT_AND_INCOME_CERTIFICATION_DOCUMENT = 'account_holder_account_and_income_certification_document';
-    public const LOAN_LENDER_BORROWER_CONTRACT = 'loan_lender_borrower_contract';
-    public const BORROWER_BANK_READER = 'borrower_bank_reader';
-    public const BORROWER_AML = 'borrower_aml';
-    public const BORROWER_ASNEF = 'borrower_asnef';
     public const CSV_KEY_VALUE = 'csv_key_value';
-    public const NET_INCOME = 'net_income';
-
 
     private const ALLOWED_VALUES = [
-        self::DOCUMENT_ID_FRONT,
-        self::DOCUMENT_ID_BACK,
-        self::ACCOUNT_HOLDER_ACCOUNT_AND_INCOME_CERTIFICATION_DOCUMENT,
-        self::LOAN_LENDER_BORROWER_CONTRACT,
-        self::BORROWER_BANK_READER,
-        self::BORROWER_AML,
-        self::BORROWER_ASNEF,
-        self::CSV_KEY_VALUE,
-        self::NET_INCOME
+        self::CSV_KEY_VALUE
     ];
 
     /**

@@ -10,26 +10,12 @@ class Role extends ValueObject
 {
     public const ROLE_SUPER_ADMIN = 'role_super_admin';
     public const ROLE_ADMIN = 'role_admin';
-    public const ROLE_FRONTEND_ADMIN = 'role_frontend_admin';
-    public const ROLE_FRONTEND_BORROWER = 'role_frontend_borrower';
-    public const ROLE_FRONTEND_LANDING = 'role_frontend_landing';
-    public const ROLE_COMMERCIAL = 'role_commercial';
-    public const ROLE_RISK = 'role_risk';
-    public const ROLE_MERCHANT = 'role_merchant';
-    public const ROLE_BORROWER = 'role_borrower';
     public const ROLE_TASK_RUNNER = 'role_task_runner';
 
 
     private $allowedValues = [
         self::ROLE_SUPER_ADMIN,
         self::ROLE_ADMIN,
-        self::ROLE_FRONTEND_ADMIN,
-        self::ROLE_FRONTEND_BORROWER,
-        self::ROLE_FRONTEND_LANDING,
-        self::ROLE_COMMERCIAL,
-        self::ROLE_RISK,
-        self::ROLE_MERCHANT,
-        self::ROLE_BORROWER,
         self::ROLE_TASK_RUNNER
     ];
 

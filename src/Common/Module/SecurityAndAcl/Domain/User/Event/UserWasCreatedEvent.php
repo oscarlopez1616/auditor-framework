@@ -3,11 +3,11 @@
 namespace TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Event;
 
 use Exception;
-use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\Role;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UniqueEmail;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserId;
 use TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\User\UserType;
+use TheCodeFighters\Bundle\AuditorFramework\Common\Types\Domain\Event\Event;
 
 class UserWasCreatedEvent extends Event
 {
@@ -40,15 +40,14 @@ class UserWasCreatedEvent extends Event
 
     public function __construct(
         UserId $id,
-        UniqueEmail
-        $userMerchantGroupId,
+        UniqueEmail $userName,
         array $roles,
         string $password,
         bool $active,
         UserType $userType
     )
     {
-        $this->userName = $userMerchantGroupId;
+        $this->userName = $userName;
         $this->roles = $roles;
         $this->password = $password;
         $this->active = $active;

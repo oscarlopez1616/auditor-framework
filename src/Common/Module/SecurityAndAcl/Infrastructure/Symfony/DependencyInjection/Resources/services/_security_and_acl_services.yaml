@@ -5,55 +5,10 @@ services:
     public: false
 
   #Voters
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\ApiGatewayBorrowerBankReaderControllerVoter:
-    tags: [name: 'security.voter']
-
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\ApiGatewayBorrowerControllerVoter:
-    tags: [name: 'security.voter']
-
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\ApiGatewayCashOutMethodControllerVoter:
-    tags: [name: 'security.voter']
-
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\BorrowerBankReaderControllerVoter:
-    tags: [name: 'security.voter']
-
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\BorrowerControllerVoter:
-    tags: [name: 'security.voter']
-
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CashInCashOutMethodControllerVoter:
-    tags: [name: 'security.voter']
-
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CashOutMethodControllerVoter:
-    tags: [name: 'security.voter']
-
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\LoanControllerVoter:
-    tags: [name: 'security.voter']
-
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantAttributionControllerVoter:
-    tags: [name: 'security.voter']
-
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantControllerVoter:
-    tags: [name: 'security.voter']
-
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\OriginationRiskValuesControllerVoter:
-    tags: [name: 'security.voter']
-
   TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\UserControllerVoter:
     tags: [name: 'security.voter']
 
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\LenderControllerVoter:
-    tags: [name: 'security.voter']
-
   TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\CsvControllerVoter:
-    tags: [name: 'security.voter']
-
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\LoanApplicationControllerVoter:
-    tags: [name: 'security.voter']
-
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantDataControllerVoter:
-    tags: [name: 'security.voter']
-
-  TheCodeFighters\Bundle\AuditorFramework\Common\Module\SecurityAndAcl\Domain\Api\MerchantIdInLenderContextControllerVoter:
     tags: [name: 'security.voter']
 
   #GetUserProfile

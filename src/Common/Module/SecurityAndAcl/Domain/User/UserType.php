@@ -10,25 +10,11 @@ class UserType extends ValueObject
 {
     private const SUPER_ADMIN = 'super_admin';
     private const ADMIN = 'admin';
-    private const FRONTEND_ADMIN = 'frontend_admin';
-    private const FRONTEND_BORROWER = 'frontend_borrower';
-    private const FRONTEND_LANDING = 'frontend_landing';
-    private const RISK = 'risk';
-    private const COMMERCIAL = 'commercial';
-    private const MERCHANT = 'merchant';
-    private const BORROWER = 'borrower';
     private const TASK_RUNNER = 'task_runner';
 
     private $allowedValues = [
         self::SUPER_ADMIN,
         self::ADMIN,
-        self::FRONTEND_ADMIN,
-        self::FRONTEND_BORROWER,
-        self::FRONTEND_LANDING,
-        self::RISK,
-        self::COMMERCIAL,
-        self::MERCHANT,
-        self::BORROWER,
         self::TASK_RUNNER
     ];
 
